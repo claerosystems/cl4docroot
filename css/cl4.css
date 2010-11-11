@@ -50,8 +50,8 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_nav_showing { float:right; }
 .cl4_nav .current_page { font-weight:bold; }
 .cl4_nav select { font-size:0.7em; }
-.cl4_nav .previous, .cl4_nav .no_previous { background:url(images/cl4_sprite-arrows.png) no-repeat top left; padding-left:18px; padding-bottom:2px; }
-.cl4_nav .next, .cl4_nav .no_next { background:url(images/cl4_sprite-arrows.png) no-repeat top right; padding-right:18px; padding-bottom:2px; }
+.cl4_nav .previous, .cl4_nav .no_previous { background:url(../images/cl4_sprite-arrows.png) no-repeat top left; padding-left:18px; padding-bottom:2px; }
+.cl4_nav .next, .cl4_nav .no_next { background:url(../images/cl4_sprite-arrows.png) no-repeat top right; padding-right:18px; padding-bottom:2px; }
 .cl4_nav .previous { background-position:-660px -90px; }
 .cl4_nav .previous:hover { background-position:-630px -120px; }
 .cl4_nav .next { background-position:-690px -30px; }
@@ -66,8 +66,8 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_content thead tr th { color:#fff; text-align:left;  background:#245698 center right; }
 .cl4_content thead tr th a { font-weight:bold; text-decoration:none; color:#fff; }
 .cl4_content thead tr th.sort_asc, .cl4_content thead tr th.sort_desc { background:#6385b1 no-repeat top right; padding-right:18px; }
-.cl4_content thead tr th.sort_asc { background-image:url(images/asc.png); }
-.cl4_content thead tr th.sort_desc { background-image:url(images/desc.png); }
+.cl4_content thead tr th.sort_asc { background-image:url(../images/asc.png); }
+.cl4_content thead tr th.sort_desc { background-image:url(../images/desc.png); }
 .cl4_content thead tr th:hover { background-color:#3e6fb0; }
 .cl4_content tbody tr td.sort_asc, .cl4_content tbody tr td.sort_desc { background-color:#d6d6d6; }
 /* this is to align the checkbox to check all */
@@ -83,7 +83,7 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_message .error, .cl4_message .warning, .cl4_message .notice, .cl4_message .debug { margin:2px; padding:5px; border:1px dashed #5a5aff; background-color:#dbdbff; }
 .cl4_message .warning { border-color:#e08900; background-color:#ffdaa0; }
 .cl4_message .error { border-color:#e50000; background-color:#fea4a4; }
-.cl4_message .debug { border-color:#44ba30; background-color:#c7febe; background-image:url(images/message-debug.gif); background-repeat:no-repeat; padding-left:75px; }
+.cl4_message .debug { border-color:#44ba30; background-color:#c7febe; background-image:url(../images/message-debug.gif); background-repeat:no-repeat; padding-left:75px; }
 
 /** formatting for buttons inside delete messages (likely contained in .cl4_message ul) **/
 .cl4_delete_confirm_message input { margin-right:5px; }
@@ -102,7 +102,7 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_pdf, .cl4_word, .cl4_excel, .cl4_powerpoint, .cl4_image, .cl4_acrobat,
 /* arrows */
 .cl4_right, .cl4_left, .cl4_up, .cl4_down, .cl4_no_right, .cl4_no_left, .cl4_no_up, .cl4_no_down, .cl4_open_down, .cl4_open_up, .cl4_open_right, .cl4_open_left {
-	background:url(images/cl4_sprite-icons.png) no-repeat top left; /* this is the sprite for the icons, file types and arrows override this */
+	background:url(../images/cl4_sprite-icons.png) no-repeat top left; /* this is the sprite for the icons, file types and arrows override this */
 	text-decoration:none; /* for when used as a link */
 	padding-left:14px;
 	padding-bottom:2px;
@@ -167,7 +167,7 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_download:hover { background-position:-30px -1650px; }
 
 /* file types sprite positioning */
-.cl4_pdf, .cl4_word, .cl4_excel, .cl4_powerpoint, .cl4_image, .cl4_acrobat { background-image:url(images/cl4_sprite-file_types.png); padding-left:20px; }
+.cl4_pdf, .cl4_word, .cl4_excel, .cl4_powerpoint, .cl4_image, .cl4_acrobat { background-image:url(../images/cl4_sprite-file_types.png); padding-left:20px; }
 .cl4_pdf { background-position:-180px -30px; }
 .cl4_word { background-position:-150px -60px; }
 .cl4_excel { background-position:-120px -90px; }
@@ -176,7 +176,7 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_acrobat { background-position:-30px -180px; }
 
 /* arrows sprite positioning */
-.cl4_right, .cl4_left, .cl4_up, .cl4_down, .cl4_no_right, .cl4_no_left, .cl4_no_up, .cl4_no_down, .cl4_open_down, .cl4_open_up, .cl4_open_right, .cl4_open_left { background-image:url(images/cl4_sprite-arrows.png); padding-left:16px; }
+.cl4_right, .cl4_left, .cl4_up, .cl4_down, .cl4_no_right, .cl4_no_left, .cl4_no_up, .cl4_no_down, .cl4_open_down, .cl4_open_up, .cl4_open_right, .cl4_open_left { background-image:url(../images/cl4_sprite-arrows.png); padding-left:16px; }
 .cl4_right { background-position:-720px -30px; }
 .cl4_right:hover { background-position:-690px -60px; }
 .cl4_left { background-position:-660px -90px; }
