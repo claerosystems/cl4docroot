@@ -6,7 +6,7 @@ tr.even td { background-color:#e4e4e4; }
 tr.odd td { background-color:#f1f1f1; } /* no background color because we want the background to show through */
 
 /** no wrap class **/
-.nowrap { white-space: nowrap; }
+.nowrap { white-space:nowrap; }
 
 /** claeroform required styles **/
 label.cl4_required { color:#f00; }
