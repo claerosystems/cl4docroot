@@ -126,7 +126,7 @@ cl4.click_multiple_edit = function(checked) {
 // defaults for the date picker; these are necessary so the date picker within cl4 work
 $.datepicker.setDefaults({
     dateFormat: 'yy-mm-dd',
-    buttonImage: '/lib/cl4/images/calendar.gif',
+    buttonImage: '/cl4/images/calendar.gif',
     buttonImageOnly: true
 });
 
