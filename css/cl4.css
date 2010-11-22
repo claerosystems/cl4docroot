@@ -3,14 +3,16 @@
 /** table striping **/
 /* this needs to be up here so things later on can override it, like a hover */
 tr.even td { background-color:#e4e4e4; }
-tr.odd td { background-color:#f1f1f1; } /* no background color because we want the background to show through */
+tr.odd td { background-color:#f1f1f1; }
 
 /** no wrap class **/
 .nowrap { white-space:nowrap; }
 
-/** claeroform required styles **/
+/** claeroform required and error styles **/
 label.cl4_required { color:#f00; }
 input.cl4_required { } /* todo:add required sprite? */
+label.cl4_field_error { color:#f00; }
+input.cl4_field_error { border:1px solid #f00; }
 
 /** jquery date picker customizations **/
 .ui-datepicker-trigger { padding-left:3px; margin-bottom:-5px; }
@@ -21,7 +23,7 @@ table.cl4_form td { padding:4px; border-right:1px solid #fff; border-bottom:1px 
 
 /** multiple edit table **/
 .cl4_edit_multiple thead tr th, .cl4_edit_multiple tbody tr td { padding:4px; border-bottom:1px solid #fff; border-right:1px solid #fff; }
-.cl4_edit_multiple thead tr th:last-child, .cl4_content tbody tr td:last-child { border-right:none; }
+.cl4_edit_multiple thead tr th:last-child, .cl4_edit_multiple tbody tr td:last-child { border-right:none; }
 .cl4_edit_multiple thead tr th { color:#fff; text-align:left; background:#245698 center right; }
 /* this is to align the checkbox to check all */
 .cl4_edit_multiple tr:hover td { background-color:#d6d6d6; }
