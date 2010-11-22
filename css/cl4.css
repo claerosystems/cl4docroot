@@ -12,7 +12,7 @@ tr.odd td { background-color:#f1f1f1; }
 label.cl4_required { color:#f00; }
 input.cl4_required { } /* todo:add required sprite? */
 label.cl4_field_error { color:#f00; }
-input.cl4_field_error { border:1px solid #f00; }
+input.cl4_field_error, textarea.cl4_field_error { border:1px solid #f00; }
 
 /** jquery date picker customizations **/
 .ui-datepicker-trigger { padding-left:3px; margin-bottom:-5px; }
