@@ -145,7 +145,7 @@ $(function() {
 	// for checkboxes in tables to add .selected to the row
 	$('.cl4_row_checkbox').change(cl4.row_checked);
 
-	// found in claeroadmin/header.php
+	// found in views/cl4/cl4admin/header.php
 	$('#cl4_model_select_form').change(cl4.model_select_change);
 	$('#cl4_model_select_go').click(cl4.model_select_change);
 });
