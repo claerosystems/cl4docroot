@@ -148,6 +148,12 @@ $(function() {
 	// found in views/cl4/cl4admin/header.php
 	$('#cl4_model_select_form').change(cl4.model_select_change);
 	$('#cl4_model_select_go').click(cl4.model_select_change);
+
+	// Found in CL4_MultiORM->get_editable_list()
+	$("#sel-add-multiple-num").change(function() {
+		// Add the number to add to the URL
+		$("#btn-add-multiple").data('cl4_form_action', $("#btn-add-multiple").data('cl4_form_action_saved') + "/" + $(this).val() + "/multiple");
+	});
 });
 
 // ****************************************************************************************************
