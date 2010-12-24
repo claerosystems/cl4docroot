@@ -26,6 +26,15 @@ cl4.export_selected = function() {
 }
 
 /**
+* For adding multiple records, uses cl4_add_multiple_related_button on the select and cl4_add_multiple_form_action_prefix on the button
+*/
+cl4.add_multiple_form = function() {
+	$count_select = $(this);
+	$add_multiple_button = $('#' + $count_select.data('cl4_add_multiple_related_button'));
+	$add_multiple_button.data('cl4_form_action', $add_multiple_button.data('cl4_add_multiple_form_action_prefix') + '/' + $count_select.val() + '/multiple');
+}
+
+/**
 * Determines if the multiple edit buttons should be disabled or not based on the checkboxes checked in the form.
 */
 cl4.multiple_edit_form = function() {
@@ -141,6 +150,7 @@ $(function() {
 	$('.cl4_export_selected').click(cl4.export_selected);
 	$('.cl4_multiple_edit_form').change(cl4.multiple_edit_form);
 	$('.cl4_check_all_checkbox').click(cl4.check_all_checkbox);
+	$('.cl4_add_multiple_count').change(cl4.add_multiple_form);
 
 	// for checkboxes in tables to add .selected to the row
 	$('.cl4_row_checkbox').change(cl4.row_checked);
@@ -148,12 +158,6 @@ $(function() {
 	// found in views/cl4/cl4admin/header.php
 	$('#cl4_model_select_form').change(cl4.model_select_change);
 	$('#cl4_model_select_go').click(cl4.model_select_change);
-
-	// Found in CL4_MultiORM->get_editable_list()
-	$("#sel-add-multiple-num").change(function() {
-		// Add the number to add to the URL
-		$("#btn-add-multiple").data('cl4_form_action', $("#btn-add-multiple").data('cl4_form_action_saved') + "/" + $(this).val() + "/multiple");
-	});
 });
 
 // ****************************************************************************************************
