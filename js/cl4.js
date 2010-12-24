@@ -31,7 +31,7 @@ cl4.export_selected = function() {
 cl4.add_multiple_form = function() {
 	$count_select = $(this);
 	$add_multiple_button = $('#' + $count_select.data('cl4_add_multiple_related_button'));
-	$add_multiple_button.data('cl4_form_action', $add_multiple_button.data('cl4_add_multiple_form_action_prefix') + '/' + $count_select.val() + '/multiple');
+	$add_multiple_button.data('cl4_form_action', $add_multiple_button.data('cl4_add_multiple_form_action_prefix') + '/' + $count_select.val());
 }
 
 /**
