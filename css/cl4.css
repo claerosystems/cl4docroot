@@ -35,6 +35,7 @@ ul.cl4_form li ul li { float:left; width:200px; }
 
 /** buttons displayed below the forms **/
 .cl4_buttons { background-color:#f3db84; padding:5px; margin-top:2px; }
+.cl4_buttons_top { margin-bottom:3px; }
 .cl4_buttons input { margin-right:5px; }
 
 /** editable list css **/
