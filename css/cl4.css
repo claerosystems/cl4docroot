@@ -205,3 +205,6 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_open_right:hover { background-position:-90px -660px; }
 .cl4_open_left { background-position:-60px -690px; }
 .cl4_open_left:hover { background-position:-30px -720px; }
+
+/** for model create in cl4 admin **/
+.model_code_container { width:100%; height:800px; margin:15px 0; }
