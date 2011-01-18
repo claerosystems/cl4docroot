@@ -81,6 +81,18 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_content tr:hover td { background-color:#d6d6d6; }
 .cl4_content tr.selected td { background-color:#f3db84; }
 
+/** field help **/
+.cl4_field_help {
+	background:url(../images/cl4_sprite-icons.png) no-repeat top left;
+	text-decoration:none;
+	padding-left:18px;
+	padding-bottom:2px;
+	padding-top:2px;
+	border:none;
+	background-position:-1350px -330px;
+	color:#555;
+}
+
 /** message formating **/
 .cl4_message { list-style:none; font-weight:bold; margin:5px 0; }
 .cl4_message li { list-style:none; }
