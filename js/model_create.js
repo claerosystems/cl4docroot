@@ -1,6 +1,6 @@
 $(function() {
 	$('#create_model').click(function() {
-		$('#m_table_name').change();
+		$('#table_name').change();
 	});
 
 	$('#db_group').change(function() {
