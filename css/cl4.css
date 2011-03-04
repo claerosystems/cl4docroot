@@ -49,6 +49,7 @@ ul.cl4_form li ul li { float:left; width:200px; }
 /* claero custom pagination */
 .cl4_nav { margin:2px 0; background-color:#e4e4e4; padding:5px; color:#184a8c; font-size:1em; }
 .cl4_nav a { color:#184a8c; }
+.cl4_nav a:hover, .cl4_nav a:active, .cl4_nav a:visited { color:#2f67b2; }
 .cl4_nav_pages { float:left; }
 .cl4_nav_showing { float:right; }
 .cl4_nav .current_page { font-weight:bold; }
