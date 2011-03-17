@@ -1,4 +1,5 @@
-var cl4 = function() {}
+// create the cl4 object
+var cl4 = {};
 
 /**
 * Set the form action based on the source button input data-cl4_form_action parameter.

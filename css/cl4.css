@@ -114,6 +114,15 @@ ul.cl4_form li ul li { float:left; width:200px; }
 /* adds some space between the date operand and the date field in the search */
 .cl4_date_operand { margin-right:4px; }
 
+#cl4_ajax_errors {
+	position:fixed;
+	top:0;
+	width:100%;
+	text-align:center;
+}
+#cl4_ajax_errors div { display:none; border-bottom:1px solid #6d1c09; background-color:#aa2c0f; font-size:1.3em; color:#fff; padding:5px; cursor:pointer; }
+#cl4_ajax_errors div a { color:#fff; }
+
 /** icons, file types and arrows in sprites **/
 .cl4_add, .cl4_delete, .cl4_edit, .cl4_view, .cl4_info, .cl4_help, .cl4_check, .cl4_checked, .cl4_no_check, .cl4_print, .cl4_mail, .cl4_warning, .cl4_flag1, .cl4_flag2, .cl4_gear, .cl4_wrench, .cl4_link, .cl4_alert, .cl4_contact, .cl4_contact2, .cl4_checkmark, .cl4_no_checkmark, .cl4_globe, .cl4_refresh, .cl4_calendar1, .cl4_calendar2, .cl4_grid, .cl4_minus, .cl4_download, .cl4_lock,
 /* file types */
