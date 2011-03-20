@@ -4,7 +4,15 @@
 * Include after cl4.js
 */
 
-cl4.default_error_msg = 'There was a error loading some of the content on this page.<br>Try reloading the page or contacting an administrator.';
+/**
+* Default error messages
+*/
+cl4.ajax_error_msgs = {
+	default_msg : 'There was a error loading some of the content on this page.<br>Try reloading the page or contacting an administrator.',
+	not_logged_in : 'You are no longer logged in. <a href="/login">Click here to login.</a>',
+	timed_out : 'Your login has timed out. To continue using your current login, <a href="/login/timedout">click here to enter your password.</a>',
+	not_allowed : 'You do not have the necessary permissions to access some of the functionality on this page.'
+};
 
 /**
 * ajax error function, will show a red div at the top of the page if there is a problem with any of the ajax on the page
@@ -23,7 +31,7 @@ cl4.add_ajax_error = function(error) {
 */
 cl4.add_default_ajax_error = function(return_data, default_msg) {
 	if (arguments.length == 1) {
-		default_msg = cl4.default_error_msg;
+		default_msg = cl4.ajax_error_msgs.default_msg;
 	}
 
 	if (return_data !== null && typeof return_data == 'object' && typeof return_data.error_msg != 'undefined' && return_data.error_msg != '') {
@@ -37,7 +45,7 @@ cl4.add_default_ajax_error = function(return_data, default_msg) {
 * attach an AJAX error hander to the ajax_error element
 */
 $('#cl4_ajax_errors').ajaxError(function() {
-	cl4.add_ajax_error(cl4.default_error_msg);
+	cl4.add_ajax_error(cl4.ajax_error_msgs.default_msg);
 });
 
 /**
@@ -74,7 +82,7 @@ cl4.process_ajax = function(return_data) {
 			break;
 		// not logged in
 		case 2 :
-			cl4.add_default_ajax_error(return_data, 'You are no longer logged in. <a href="/login">Click here to login.</a>');
+			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_logged_in);
 			if (cl4_in_debug) {
 				console.log('The user is not logged in');
 			}
@@ -82,7 +90,7 @@ cl4.process_ajax = function(return_data) {
 			break;
 		// timed out
 		case 3 :
-			cl4.add_default_ajax_error(return_data, 'Your login has timed out. To continue using your current login, <a href="/login/timedout">click here to enter your password.</a>');
+			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.timed_out);
 			if (cl4_in_debug) {
 				console.log('The user has timed out');
 			}
@@ -90,7 +98,7 @@ cl4.process_ajax = function(return_data) {
 			break;
 		// not allowed (permissions)
 		case 4 :
-			cl4.add_default_ajax_error(return_data, 'You do not have the necessary permissions to access some of the functionality on this page.');
+			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_allowed);
 			if (cl4_in_debug) {
 				console.log('The user does not have permissions');
 			}
@@ -104,5 +112,5 @@ cl4.process_ajax = function(return_data) {
 				console.log('An unknown error occurred');
 			}
 			return false;
-	}
+	} // switch
 };
