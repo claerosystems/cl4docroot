@@ -11,7 +11,8 @@ cl4.ajax_error_msgs = {
 	default_msg : 'There was a error loading some of the content on this page.<br>Try reloading the page or contacting an administrator.',
 	not_logged_in : 'You are no longer logged in. <a href="/login">Click here to login.</a>',
 	timed_out : 'Your login has timed out. To continue using your current login, <a href="/login/timedout">click here to enter your password.</a>',
-	not_allowed : 'You do not have the necessary permissions to access some of the functionality on this page.'
+	not_allowed : 'You do not have the necessary permissions to access some of the functionality on this page.',
+	not_found_404 : 'The requested URL was not found.'
 };
 
 /**
@@ -20,9 +21,11 @@ cl4.ajax_error_msgs = {
 cl4.add_ajax_error = function(error) {
 	$('#cl4_ajax_errors').append('<div title="Click to hide">' + error + '</div>');
 	$('#cl4_ajax_errors div').click(function() {
-		$(this).slideUp(function() {
-			$(this).remove();
-		});
+		if ( ! cl4_in_debug) {
+			$(this).slideUp(function() {
+				$(this).remove();
+			});
+		}
 	}).slideDown();
 };
 
@@ -44,8 +47,11 @@ cl4.add_default_ajax_error = function(return_data, default_msg) {
 /**
 * attach an AJAX error hander to the ajax_error element
 */
-$('#cl4_ajax_errors').ajaxError(function() {
+$('#cl4_ajax_errors').ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
 	cl4.add_ajax_error(cl4.ajax_error_msgs.default_msg);
+	if (cl4_in_debug) {
+		console.log('AJAX Error: ' + thrownError);
+	}
 });
 
 /**
@@ -101,6 +107,14 @@ cl4.process_ajax = function(return_data) {
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_allowed);
 			if (cl4_in_debug) {
 				console.log('The user does not have permissions');
+			}
+			return false;
+			break;
+		// not found 404
+		case 5 :
+			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_found_404);
+			if (cl4_in_debug) {
+				console.log('The page/path could not be found');
 			}
 			return false;
 			break;
