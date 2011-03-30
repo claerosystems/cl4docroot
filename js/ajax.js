@@ -19,13 +19,11 @@ cl4.ajax_error_msgs = {
 * ajax error function, will show a red div at the top of the page if there is a problem with any of the ajax on the page
 */
 cl4.add_ajax_error = function(error) {
-	$('#cl4_ajax_errors').append('<div title="Click to hide">' + error + '</div>');
-	$('#cl4_ajax_errors div').click(function() {
-		if ( ! cl4_in_debug) {
-			$(this).slideUp(function() {
-				$(this).remove();
-			});
-		}
+	$('#cl4_ajax_errors').append('<div title="Double click to hide">' + error + '</div>');
+	$('#cl4_ajax_errors div').dblclick(function() {
+		$(this).slideUp(function() {
+			$(this).remove();
+		});
 	}).slideDown();
 };
 
