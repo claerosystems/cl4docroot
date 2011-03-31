@@ -28,6 +28,30 @@ cl4.add_ajax_error = function(error) {
 };
 
 /**
+* Adds an ajax validation message at the top of the page and hides and existing validation messages
+*/
+cl4.add_ajax_validation_msg = function(return_data) {
+	cl4.hide_ajax_validation_msgs();
+	if (return_data !== null && typeof return_data == 'object' && typeof return_data.validation_msg != 'undefined' && return_data.validation_msg != '') {
+		$('#cl4_ajax_errors').append('<div title="Double click to hide" class="cl4_ajax_validation_msg">' + return_data.validation_msg + '</div>');
+		$('#cl4_ajax_errors div').dblclick(function() {
+			$(this).slideUp(function() {
+				$(this).remove();
+			});
+		}).slideDown();
+	}
+};
+
+/**
+* Hides existing validation messages within the cl4_ajax_errors container
+*/
+cl4.hide_ajax_validation_msgs = function() {
+	$('#cl4_ajax_errors div.cl4_ajax_validation_msg').slideUp(function() {
+		$(this).remove();
+	});
+};
+
+/**
 * Adds a default message if there is no error_msg in the return_data object
 */
 cl4.add_default_ajax_error = function(return_data, default_msg) {
@@ -113,6 +137,14 @@ cl4.process_ajax = function(return_data) {
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_found_404);
 			if (cl4_in_debug) {
 				console.log('The page/path could not be found');
+			}
+			return false;
+			break;
+		// validation error
+		case 6 :
+			cl4.add_ajax_validation_msg(return_data);
+			if (cl4_in_debug) {
+				console.log('There was a validation error');
 			}
 			return false;
 			break;
