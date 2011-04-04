@@ -72,7 +72,7 @@ cl4.add_default_ajax_error = function(return_data, default_msg) {
 $('#cl4_ajax_errors').ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
 	cl4.add_ajax_error(cl4.ajax_error_msgs.default_msg);
 	if (cl4_in_debug) {
-		console.log('AJAX Error: ' + thrownError);
+		cl4.ajax_log_msg('AJAX Error: ' + thrownError);
 	}
 });
 
@@ -83,7 +83,7 @@ cl4.process_ajax = function(return_data) {
 	if (typeof return_data != 'object' || return_data === null) {
 		cl4.add_default_ajax_error(return_data);
 		if (cl4_in_debug) {
-			console.log('JSON data is not parsable');
+			cl4.ajax_log_msg('JSON data is not parsable');
 		}
 		return false;
 	}
@@ -95,7 +95,7 @@ cl4.process_ajax = function(return_data) {
 	// check to see if we've received the status, because we need it for the rest
 	if (typeof return_data.status == 'undefined') {
 		if (cl4_in_debug) {
-			console.log('No status property in JSON data');
+			cl4.ajax_log_msg('No status property in JSON data');
 		}
 		return;
 	}
@@ -104,7 +104,7 @@ cl4.process_ajax = function(return_data) {
 		// successful
 		case 1 :
 			if (cl4_in_debug) {
-				console.log('AJAX all good');
+				cl4.ajax_log_msg('AJAX all good');
 			}
 			return true;
 			break;
@@ -112,7 +112,7 @@ cl4.process_ajax = function(return_data) {
 		case 2 :
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_logged_in);
 			if (cl4_in_debug) {
-				console.log('The user is not logged in');
+				cl4.ajax_log_msg('The user is not logged in');
 			}
 			return false;
 			break;
@@ -120,7 +120,7 @@ cl4.process_ajax = function(return_data) {
 		case 3 :
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.timed_out);
 			if (cl4_in_debug) {
-				console.log('The user has timed out');
+				cl4.ajax_log_msg('The user has timed out');
 			}
 			return false;
 			break;
@@ -128,7 +128,7 @@ cl4.process_ajax = function(return_data) {
 		case 4 :
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_allowed);
 			if (cl4_in_debug) {
-				console.log('The user does not have permissions');
+				cl4.ajax_log_msg('The user does not have permissions');
 			}
 			return false;
 			break;
@@ -136,7 +136,7 @@ cl4.process_ajax = function(return_data) {
 		case 5 :
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_found_404);
 			if (cl4_in_debug) {
-				console.log('The page/path could not be found');
+				cl4.ajax_log_msg('The page/path could not be found');
 			}
 			return false;
 			break;
@@ -144,7 +144,7 @@ cl4.process_ajax = function(return_data) {
 		case 6 :
 			cl4.add_ajax_validation_msg(return_data);
 			if (cl4_in_debug) {
-				console.log('There was a validation error');
+				cl4.ajax_log_msg('There was a validation error');
 			}
 			return false;
 			break;
@@ -153,8 +153,16 @@ cl4.process_ajax = function(return_data) {
 		default :
 			cl4.add_default_ajax_error(return_data);
 			if (cl4_in_debug) {
-				console.log('An unknown error occurred');
+				cl4.ajax_log_msg('An unknown error occurred');
 			}
 			return false;
 	} // switch
 };
+
+cl4.ajax_log_msg = function(msg) {
+	try {
+		console.log(msg);
+	} catch (e) {
+		// don't do anything
+	}
+}
