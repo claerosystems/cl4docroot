@@ -153,7 +153,11 @@ cl4.process_ajax = function(return_data) {
 		default :
 			cl4.add_default_ajax_error(return_data);
 			if (cl4_in_debug) {
-				cl4.ajax_log_msg('An unknown error occurred');
+				if (typeof return_data.debug_msg != 'undefined' && return_data.debug_msg != '') {
+					cl4.ajax_log_msg('AJAX Error: ' + return_data.debug_msg);
+				} else {
+					cl4.ajax_log_msg('An unknown error occurred');
+				}
 			}
 			return false;
 	} // switch
