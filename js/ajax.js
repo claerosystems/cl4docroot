@@ -55,7 +55,10 @@ cl4.hide_ajax_validation_msgs = function() {
 * Adds a default message if there is no error_msg in the return_data object
 */
 cl4.add_default_ajax_error = function(return_data, default_msg) {
-	if (arguments.length == 1) {
+	if (arguments.length == 0) {
+		return_data = null;
+		default_msg = cl4.ajax_error_msgs.default_msg;
+	} else if (arguments.length == 1) {
 		default_msg = cl4.ajax_error_msgs.default_msg;
 	}
 
@@ -80,8 +83,8 @@ $('#cl4_ajax_errors').ajaxError(function(event, jqXHR, ajaxSettings, thrownError
 * Call within a ajax success function to deal with the response of an ajax call
 */
 cl4.process_ajax = function(return_data) {
-	if (typeof return_data != 'object' || return_data === null) {
-		cl4.add_default_ajax_error(return_data);
+	if (typeof return_data != 'object' || jQuery.isEmptyObject(return_data)) {
+		cl4.add_default_ajax_error();
 		if (cl4_in_debug) {
 			cl4.ajax_log_msg('JSON data is not parsable');
 		}
