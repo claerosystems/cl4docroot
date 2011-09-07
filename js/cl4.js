@@ -133,16 +133,20 @@ cl4.click_multiple_edit = function(checked) {
     }
 }
 
-// defaults for the date picker; these are necessary so the date picker within cl4 work
-$.datepicker.setDefaults({
-    dateFormat: 'yy-mm-dd',
-    buttonImage: '/cl4/images/calendar.gif',
-    buttonImageOnly: true
-});
+if (typeof $.datepicker != 'undefined') {
+	// defaults for the date picker; these are necessary so the date picker within cl4 work
+	$.datepicker.setDefaults({
+	    dateFormat: 'yy-mm-dd',
+	    buttonImage: '/cl4/images/calendar.gif',
+	    buttonImageOnly: true
+	});
+}
 
 $(function() {
-	// adding the date picker to date fields
-	$('.cl4_date_field-date').datepicker();
+	if (typeof $.datepicker != 'undefined') {
+		// adding the date picker to date fields
+		$('.cl4_date_field-date').datepicker();
+	}
 
 	// buttons and checkbox at the top of an editable list
 	$('.cl4_button_link_form').click(cl4.button_link_form);
