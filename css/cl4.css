@@ -123,7 +123,9 @@ ul.cl4_form li ul li { float:left; width:200px; }
 }
 #cl4_ajax_errors div { display:none; border-bottom:1px solid #6d1c09; background-color:#aa2c0f; font-size:1.3em; color:#fff; padding:5px; cursor:pointer; }
 #cl4_ajax_errors div a { color:#fff; }
+#cl4_ajax_errors div a.dismiss { font-size:0.5em; text-decoration:none; }
 #cl4_ajax_errors div.cl4_ajax_validation_msg ul { display:inline-block; text-align:left; } /* so this won't display the list of errors on the same line as the prefix msg, add a br after the prefix msg */
+
 
 /** icons, file types and arrows in sprites **/
 .cl4_add, .cl4_delete, .cl4_edit, .cl4_view, .cl4_info, .cl4_help, .cl4_check, .cl4_checked, .cl4_no_check, .cl4_print, .cl4_mail, .cl4_warning, .cl4_flag1, .cl4_flag2, .cl4_gear, .cl4_wrench, .cl4_link, .cl4_alert, .cl4_contact, .cl4_contact2, .cl4_checkmark, .cl4_no_checkmark, .cl4_globe, .cl4_refresh, .cl4_calendar1, .cl4_calendar2, .cl4_grid, .cl4_minus, .cl4_download, .cl4_lock,
