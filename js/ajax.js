@@ -176,4 +176,4 @@ cl4.ajax_log_msg = function(msg) {
 	} catch (e) {
 		// don't do anything
 	}
-}
+};
