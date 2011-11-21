@@ -139,6 +139,8 @@ ul.cl4_form li ul li { float:left; width:200px; }
 	padding-bottom:2px;
 	border:none;
 }
+/* use when you want to line up icons, but a row doesn't have an icon */
+.cl4_no_icon { text-decoration:none; padding-left:14px; padding-bottom:2px; border:none; }
 /* icon sprite positioning */
 .cl4_add { background-position:-1710px -30px; }
 .cl4_add:hover { background-position:-1680px -60px; }
