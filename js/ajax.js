@@ -77,9 +77,11 @@ cl4.add_default_ajax_error = function(return_data, default_msg) {
 * attach an AJAX error hander to the ajax_error element
 */
 $('#cl4_ajax_errors').ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
-	cl4.add_ajax_error(cl4.ajax_error_msgs.default_msg);
-	if (cl4_in_debug) {
-		cl4.ajax_log_msg('AJAX Error: ' + thrownError);
+	if (typeof ajaxSettings.cl4_ajax_error_display == 'undefined' || ajaxSettings.cl4_ajax_error_display) {
+		cl4.add_ajax_error(cl4.ajax_error_msgs.default_msg);
+		if (cl4_in_debug) {
+			cl4.ajax_log_msg('AJAX Error: ' + thrownError);
+		}
 	}
 });
 
