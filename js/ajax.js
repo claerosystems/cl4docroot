@@ -45,11 +45,8 @@ cl4.add_message_div = function(msg, div_class) {
 	var $msg_div = $('<div' + div_class + '><span class="dismiss"><a href="">X</a></span>' + msg + '</div>');
 
 	$('#cl4_ajax_errors').append($msg_div);
-	$msg_div.slideDown(function() {
-		$('body').animate({
-			marginTop: $('#cl4_ajax_errors').height() + 'px'
-		}, 'fast', 'linear');
-	}).find('span.dismiss a').click(function(e) {
+	$msg_div.slideDown(cl4.animate_ajax_body_margin)
+	.find('span.dismiss a').click(function(e) {
 		e.preventDefault();
 		$(this).parent().parent().slideUp(function() {
 			$(this).remove();
@@ -65,6 +62,15 @@ cl4.hide_ajax_validation_msgs = function() {
 	$('#cl4_ajax_errors div.cl4_ajax_validation_msg').slideUp(function() {
 		$(this).remove();
 	});
+};
+
+/**
+ * Animates the body so it slides up after the removal of a message.
+ */
+cl4.animate_ajax_body_margin = function() {
+	$('body').animate({
+		marginTop: $('#cl4_ajax_errors').height() + 'px'
+	}, 'fast', 'linear');
 };
 
 /**
