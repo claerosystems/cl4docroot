@@ -115,15 +115,27 @@ ul.cl4_form li ul li { float:left; width:200px; }
 .cl4_date_operand { margin-right:4px; }
 
 #cl4_ajax_errors {
-	position:absolute;
+	position:fixed;
+	left:0;
 	top:0;
 	width:100%;
 	text-align:center;
 	z-index:10000;
 }
-#cl4_ajax_errors div { display:none; border-bottom:1px solid #6d1c09; background-color:#aa2c0f; font-size:1.3em; color:#fff; padding:5px; cursor:pointer; max-height:20em; overflow:scroll; }
+#cl4_ajax_errors div { display:none; border-bottom:1px solid #6d1c09; background-color:#aa2c0f; font-size:1.3em; color:#fff; padding:7px; }
 #cl4_ajax_errors div a { color:#fff; }
-#cl4_ajax_errors div a.dismiss { font-size:0.5em; text-decoration:none; }
+#cl4_ajax_errors div span.dismiss {
+	background-color:#92240a;
+    float:right;
+    margin-right:10px;
+    border:2px solid #6c1906;
+    padding-left:4px;
+    padding-right:4px;
+    text-decoration:none;
+    display:block;
+    cursor:pointer;
+}
+#cl4_ajax_errors div span.dismiss a { text-decoration: none; }
 #cl4_ajax_errors div.cl4_ajax_validation_msg ul { display:inline-block; text-align:left; } /* so this won't display the list of errors on the same line as the prefix msg, add a br after the prefix msg */
 
 

@@ -19,14 +19,7 @@ cl4.ajax_error_msgs = {
 * ajax error function, will show a red div at the top of the page if there is a problem with any of the ajax on the page
 */
 cl4.add_ajax_error = function(error) {
-	$('#cl4_ajax_errors').append('<div title="Double click to hide">' + error + '<br><a href="" class="dismiss">Click to dismiss</a></div>');
-	$('#cl4_ajax_errors div a.dismiss').click(function(e) {
-		e.preventDefault();
-		$(this).parent().slideUp(function() {
-			$(this).remove();
-		});
-	});
-	$('#cl4_ajax_errors div').slideDown();
+	cl4.add_message_div(error);
 };
 
 /**
@@ -35,15 +28,34 @@ cl4.add_ajax_error = function(error) {
 cl4.add_ajax_validation_msg = function(return_data) {
 	cl4.hide_ajax_validation_msgs();
 	if (return_data !== null && typeof return_data == 'object' && typeof return_data.validation_msg != 'undefined' && return_data.validation_msg != '') {
-		$('#cl4_ajax_errors').append('<div class="cl4_ajax_validation_msg">' + return_data.validation_msg + '<br><a href="" class="dismiss">Click to dismiss</a></div>');
-		$('#cl4_ajax_errors div a.dismiss').dblclick(function(e) {
-			e.preventDefault();
-			$(this).parent().slideUp(function() {
-				$(this).remove();
-			});
-		}).slideDown();
-		$('#cl4_ajax_errors div').slideDown();
+		cl4.add_message_div(return_data.validation_msg, 'cl4_ajax_validation_msg');
 	}
+};
+
+/**
+ * Creates the div and adds the necessary click functions and body margin-top adjustment.
+ */
+cl4.add_message_div = function(msg, div_class) {
+	if (arguments.length == 2) {
+		var div_class = ' class="' + div_class + '"';
+	} else {
+		var div_class = '';
+	}
+
+	var $msg_div = $('<div' + div_class + '><span class="dismiss"><a href="">X</a></span>' + msg + '</div>');
+
+	$('#cl4_ajax_errors').append($msg_div);
+	$msg_div.slideDown(function() {
+		$('body').animate({
+			marginTop: $('#cl4_ajax_errors').height() + 'px'
+		}, 'fast', 'linear');
+	}).find('span.dismiss a').click(function(e) {
+		e.preventDefault();
+		$(this).parent().parent().slideUp(function() {
+			$(this).remove();
+			cl4.animate_ajax_body_margin();
+		});
+	});
 };
 
 /**
