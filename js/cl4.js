@@ -6,8 +6,11 @@ var cl4 = {};
 * This is used when you click on the top row buttons in editable list (eg. Search, Add New, Edit Selected, etc.)
 */
 cl4.button_link_form = function() {
-	button_form_action = $(this).data('cl4_form_action');
-	if (button_form_action) $(this.form).attr('action', button_form_action);
+	var button_form_action = $(this).data('cl4_form_action');
+	if (button_form_action) {
+		$(this.form).attr('action', button_form_action);
+		$(this.form).attr('target', $(this).data('cl4_form_target'));
+	}
 } // function
 
 /**
