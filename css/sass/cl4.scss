@@ -1,0 +1,256 @@
+/** CSS used by cl4 for default formatting of html elements related to cl4 **/
+
+/** table striping **/
+/* this needs to be up here so things later on can override it, like a hover */
+tr.even td { background-color:#e4e4e4; }
+tr.odd td { background-color:#f1f1f1; }
+
+/** no wrap class **/
+.nowrap { white-space:nowrap; }
+
+/** claeroform required and error styles **/
+label.cl4_required { color:#f00; }
+input.cl4_required { } /* todo:add required sprite? */
+label.cl4_field_error { color:#f00; }
+input.cl4_field_error, textarea.cl4_field_error { border:1px solid #f00; }
+
+/** jquery date picker customizations **/
+.ui-datepicker-trigger { padding-left:3px; margin-bottom:-5px; }
+.ui-datepicker-append { font-size:0.8em; color:#888; padding-left:3px; }
+
+/** cl4 table form css **/
+table.cl4_form td { padding:4px; border-right:1px solid #fff; border-bottom:1px solid #fff; }
+
+/** multiple edit table **/
+.cl4_edit_multiple thead tr th, .cl4_edit_multiple tbody tr td { padding:4px; border-bottom:1px solid #fff; border-right:1px solid #fff; }
+.cl4_edit_multiple thead tr th:last-child, .cl4_edit_multiple tbody tr td:last-child { border-right:none; }
+.cl4_edit_multiple thead tr th { color:#fff; text-align:left; background:#245698 center right; }
+/* this is to align the checkbox to check all */
+.cl4_edit_multiple tr:hover td { background-color:#d6d6d6; }
+
+/** ul form css **/
+ul.cl4_form li { list-style:none; }
+ul.cl4_form li ul { width:450px; }
+ul.cl4_form li ul li { float:left; width:200px; }
+
+/** buttons displayed below the forms **/
+.cl4_buttons { background-color:#f3db84; padding:5px; margin-top:2px; }
+.cl4_buttons_top { margin-bottom:3px; }
+.cl4_buttons input { margin-right:5px; }
+
+/** editable list css **/
+/* main page buttons row, appears above the search results and has the add, edit multiple, search, etc. buttons */
+.cl4_list_header { background-color:#f3db84; padding:5px 8px; margin:4px 0 0 0; }
+.cl4_list_header h2 { display:inline; float:right; padding:0; margin:0; font-size:1.5em; }
+.cl4_list_header .cl4_add_multiple_count { margin-right:10px; }
+
+/** small buttons at the top of a list of records  in admin **/
+.cl4_list_button { font-family:sans-serif; font-size:0.9em; margin-right:10px; }
+
+/* claero custom pagination */
+.cl4_nav { margin:2px 0; background-color:#e4e4e4; padding:5px; color:#184a8c; font-size:1em; }
+.cl4_nav a { color:#184a8c; }
+.cl4_nav a:hover, .cl4_nav a:active, .cl4_nav a:visited { color:#2f67b2; }
+.cl4_nav_pages { float:left; }
+.cl4_nav_showing { float:right; }
+.cl4_nav .current_page { font-weight:bold; }
+.cl4_nav select { font-size:0.7em; }
+.cl4_nav .previous, .cl4_nav .no_previous { background:url(../images/cl4_sprite-arrows.png) no-repeat top left; padding-left:18px; padding-bottom:2px; }
+.cl4_nav .next, .cl4_nav .no_next { background:url(../images/cl4_sprite-arrows.png) no-repeat top right; padding-right:18px; padding-bottom:2px; }
+.cl4_nav .previous { background-position:-660px -90px; }
+.cl4_nav .previous:hover { background-position:-630px -120px; }
+.cl4_nav .next { background-position:-690px -30px; }
+.cl4_nav .next:hover { background-position:-660px -60px; }
+.cl4_nav .no_previous { background-position:-420px -330px; }
+.cl4_nav .no_next { background-position:-450px -270px; }
+
+/** claero table for data **/
+.cl4_content { width:100%; }
+.cl4_content thead tr th, .cl4_content tbody tr td { padding:3px; border-bottom:1px solid #fff; border-right:1px solid #fff; }
+.cl4_content thead tr th:last-child, .cl4_content tbody tr td:last-child { border-right:none; }
+.cl4_content thead tr th { color:#fff; text-align:left;  background:#245698 center right; }
+.cl4_content thead tr th a { font-weight:bold; text-decoration:none; color:#fff; }
+.cl4_content thead tr th.sort_asc, .cl4_content thead tr th.sort_desc { background:#6385b1 no-repeat top right; padding-right:18px; }
+.cl4_content thead tr th.sort_asc { background-image:url(../images/asc.png); }
+.cl4_content thead tr th.sort_desc { background-image:url(../images/desc.png); }
+.cl4_content thead tr th:hover { background-color:#3e6fb0; }
+.cl4_content tbody tr td.sort_asc, .cl4_content tbody tr td.sort_desc { background-color:#d6d6d6; }
+/* this is to align the checkbox to check all */
+.cl4_content thead tr th.column0 { padding-right:2px; vertical-align:bottom; }
+.cl4_content thead tr th.column0 div { width:100px; text-align:right; }
+.cl4_content .column0 { width:100px; text-align:right; }
+.cl4_content .column0 a { margin-left:2px; }
+.cl4_content tr:hover td { background-color:#d6d6d6; }
+.cl4_content tr.selected td { background-color:#f3db84; }
+
+/** field help **/
+.cl4_field_help {
+	background:url(../images/cl4_sprite-icons.png) no-repeat top left;
+	text-decoration:none;
+	padding-left:18px;
+	padding-bottom:2px;
+	padding-top:2px;
+	margin-top:2px;
+	border:none;
+	background-position:-1409px -330px;
+	color:#555;
+}
+
+/** message formating **/
+.cl4_message { list-style:none; font-weight:bold; margin:5px 0; }
+.cl4_message li { list-style:none; }
+.cl4_message .error, .cl4_message .warning, .cl4_message .notice, .cl4_message .debug { margin:2px; padding:5px; border:1px dashed #5a5aff; background-color:#dbdbff; }
+.cl4_message .warning { border-color:#e08900; background-color:#ffdaa0; }
+.cl4_message .error { border-color:#e50000; background-color:#fea4a4; }
+.cl4_message .debug { border-color:#44ba30; background-color:#c7febe; background-image:url(../images/message-debug.gif); background-repeat:no-repeat; padding-left:75px; }
+
+/** formatting for buttons inside delete messages (likely contained in .cl4_message ul) **/
+.cl4_delete_confirm_message input { margin-right:5px; }
+
+/** formatting for displaying values when viewing records **/
+.cl4_hidden_value, .cl4_not_set, .cl4_unknown { color:#aaa; }
+
+.cl4_no_rows { border:#d6d6d6 1px solid; padding:3px 3px 3px 4px; font-weight:bold; color:#184a8c; }
+
+/* adds some space between the date operand and the date field in the search */
+.cl4_date_operand { margin-right:4px; }
+
+#cl4_ajax_errors {
+	position:fixed;
+	left:0;
+	top:0;
+	width:100%;
+	text-align:center;
+	z-index:10000;
+}
+#cl4_ajax_errors div { display:none; border-bottom:1px solid #6d1c09; background-color:#aa2c0f; font-size:1.3em; color:#fff; padding:7px; }
+#cl4_ajax_errors div a { color:#fff; }
+#cl4_ajax_errors div span.dismiss {
+	background-color:#92240a;
+	float:right;
+	margin-right:10px;
+	border:2px solid #6c1906;
+	padding:2px 4px;
+	text-decoration:none;
+	display:block;
+	cursor:pointer;
+	font-size: 0.8em;
+	font-weight:bold;
+}
+#cl4_ajax_errors div span.dismiss:hover { background-color:#7e1e07; }
+#cl4_ajax_errors div span.dismiss a { text-decoration: none; }
+#cl4_ajax_errors div.cl4_ajax_validation_msg ul { display:inline-block; text-align:left; } /* so this won't display the list of errors on the same line as the prefix msg, add a br after the prefix msg */
+
+
+/** icons, file types and arrows in sprites **/
+.cl4_add, .cl4_delete, .cl4_edit, .cl4_view, .cl4_info, .cl4_help, .cl4_check, .cl4_checked, .cl4_no_check, .cl4_print, .cl4_mail, .cl4_warning, .cl4_flag1, .cl4_flag2, .cl4_gear, .cl4_wrench, .cl4_link, .cl4_alert, .cl4_contact, .cl4_contact2, .cl4_checkmark, .cl4_no_checkmark, .cl4_globe, .cl4_refresh, .cl4_calendar1, .cl4_calendar2, .cl4_grid, .cl4_minus, .cl4_download, .cl4_lock,
+/* file types */
+.cl4_pdf, .cl4_word, .cl4_excel, .cl4_powerpoint, .cl4_image, .cl4_acrobat,
+/* arrows */
+.cl4_right, .cl4_left, .cl4_up, .cl4_down, .cl4_no_right, .cl4_no_left, .cl4_no_up, .cl4_no_down, .cl4_open_down, .cl4_open_up, .cl4_open_right, .cl4_open_left {
+	background:url(../images/cl4_sprite-icons.png) no-repeat top left; /* this is the sprite for the icons, file types and arrows override this */
+	text-decoration:none; /* for when used as a link */
+	padding-left:14px;
+	padding-bottom:2px;
+	border:none;
+}
+/* use when you want to line up icons, but a row doesn't have an icon */
+.cl4_no_icon { text-decoration:none; padding-left:14px; padding-bottom:2px; border:none; }
+/* icon sprite positioning */
+.cl4_add { background-position:-1710px -30px; }
+.cl4_add:hover { background-position:-1680px -60px; }
+.cl4_delete { background-position:-1650px -90px; }
+.cl4_delete:hover { background-position:-1620px -120px; }
+.cl4_edit { background-position:-1590px -150px; }
+.cl4_edit:hover { background-position:-1560px -180px; }
+.cl4_view { background-position:-1530px -210px; }
+.cl4_view:hover { background-position:-1500px -240px; }
+.cl4_info { background-position:-1470px -270px; }
+.cl4_info:hover { background-position:-1440px -300px; }
+.cl4_help { background-position:-1410px -330px; }
+.cl4_help:hover { background-position:-1380px -360px; }
+/* cl4_checked is a special class used in ORM_Checkbox, it's corresponding class for unchecked is cl4_unchecked */
+.cl4_check, .cl4_checked { background-position:-1350px -390px; }
+.cl4_check:hover, .cl4_checked:hover { background-position:-1320px -420px; }
+.cl4_no_check { background-position:-1290px -450px; }
+.cl4_no_check:hover { background-position:-1260px -480px; }
+.cl4_print { background-position:-1230px -510px; }
+.cl4_print:hover { background-position:-1200px -540px; }
+.cl4_mail { background-position:-1170px -570px; }
+.cl4_mail:hover { background-position:-1140px -600px; }
+.cl4_warning { background-position:-1110px -630px; }
+.cl4_warning:hover { background-position:-1080px -660px; }
+.cl4_flag1 { background-position:-1050px -690px; }
+.cl4_flag1:hover { background-position:-1020px -720px; }
+.cl4_flag2 { background-position:-990px -750px; }
+.cl4_flag2:hover { background-position:-960px -780px; }
+.cl4_gear { background-position:-930px -810px; }
+.cl4_gear:hover { background-position:-900px -840px; }
+.cl4_wrench { background-position:-870px -870px; }
+.cl4_wrench:hover { background-position:-840px -900px; }
+.cl4_link { background-position:-810px -930px; }
+.cl4_link:hover { background-position:-780px -960px; }
+.cl4_alert { background-position:-750px -990px; }
+.cl4_alert:hover { background-position:-720px -1020px; }
+.cl4_contact { background-position:-690px -1050px; }
+.cl4_contact:hover { background-position:-660px -1080px; }
+.cl4_contact2 { background-position:-630px -1110px; }
+.cl4_contact2:hover { background-position:-600px -1140px; }
+.cl4_checkmark { background-position:-570px -1170px; }
+.cl4_checkmark:hover { background-position:-540px -1200px; }
+.cl4_no_checkmark { background-position:-510px -1230px; }
+.cl4_no_checkmark:hover { background-position:-480px -1260px; }
+.cl4_globe { background-position:-450px -1290px; }
+.cl4_globe:hover { background-position:-420px -1320px; }
+.cl4_refresh { background-position:-390px -1350px; }
+.cl4_refresh:hover { background-position:-360px -1380px; }
+.cl4_calendar1 { background-position:-330px -1410px; }
+.cl4_calendar1:hover { background-position:-300px -1440px; }
+.cl4_calendar2 { background-position:-270px -1470px; }
+.cl4_grid { background-position:-240px -1500px; }
+.cl4_grid:hover { background-position:-210px -1530px; }
+.cl4_minus { background-position:-180px -1560px; }
+.cl4_minus:hover { background-position:-150px -1590px; }
+.cl4_download { background-position:-120px -1620px; }
+.cl4_download:hover { background-position:-90px -1650px; }
+.cl4_lock { background-position:-60px -1680px; }
+.cl4_lock:hover { background-position:-30px -1710px; }
+
+/* file types sprite positioning */
+.cl4_pdf, .cl4_word, .cl4_excel, .cl4_powerpoint, .cl4_image, .cl4_acrobat { background-image:url(../images/cl4_sprite-file_types.png); padding-left:20px; }
+.cl4_pdf { background-position:-180px -30px; }
+.cl4_word { background-position:-150px -60px; }
+.cl4_excel { background-position:-120px -90px; }
+.cl4_powerpoint { background-position:-90px -120px; }
+.cl4_image { background-position:-60px -150px; }
+.cl4_acrobat { background-position:-30px -180px; }
+
+/* arrows sprite positioning */
+.cl4_right, .cl4_left, .cl4_up, .cl4_down, .cl4_no_right, .cl4_no_left, .cl4_no_up, .cl4_no_down, .cl4_open_down, .cl4_open_up, .cl4_open_right, .cl4_open_left { background-image:url(../images/cl4_sprite-arrows.png); padding-left:16px; }
+.cl4_right { background-position:-720px -30px; }
+.cl4_right:hover { background-position:-690px -60px; }
+.cl4_left { background-position:-660px -90px; }
+.cl4_left:hover { background-position:-630px -120px; }
+.cl4_up { background-position:-600px -150px; }
+.cl4_up:hover { background-position:-570px -180px; }
+.cl4_down { background-position:-540px -210px; }
+.cl4_down:hover { background-position:-510px -240px; }
+.cl4_no_right { background-position:-480px -270px; }
+.cl4_no_right:hover { background-position:-450px -300px; }
+.cl4_no_left { background-position:-420px -330px; }
+.cl4_no_left:hover { background-position:-390px -360px; }
+.cl4_no_up { background-position:-360px -390px; }
+.cl4_no_up:hover { background-position:-330px -420px; }
+.cl4_no_down { background-position:-300px -450px; }
+.cl4_no_down:hover { background-position:-270px -480px; }
+.cl4_open_down { background-position:-240px -510px; }
+.cl4_open_down:hover { background-position:-210px -540px; }
+.cl4_open_up { background-position:-180px -570px; }
+.cl4_open_up:hover { background-position:-150px -600px; }
+.cl4_open_right { background-position:-120px -630px; }
+.cl4_open_right:hover { background-position:-90px -660px; }
+.cl4_open_left { background-position:-60px -690px; }
+.cl4_open_left:hover { background-position:-30px -720px; }
+
+/** for model create in cl4 admin **/
+.model_code_container { width:100%; height:800px; margin:15px 0; }
