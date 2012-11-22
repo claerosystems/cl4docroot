@@ -1,0 +1,251 @@
+/** CSS used by cl4 for default formatting of html elements related to cl4 **/
+
+@mixin cl4_all() {
+	@include tr_odd_even();
+	@include cl4_form();
+	@include cl4_ui_datepicker();
+	@include cl4_edit_multiple();
+	@include cl4_editable_list();
+	@include cl4_nav();
+	@include cl4_content();
+	@include cl4_field_help();
+
+	@include cl4_field_help();
+	@include cl4_message($debug_msg_img);
+	@include cl4_delete_msg();
+	@include cl4_hidden_values();
+	@include cl4_date_operand();
+	@include cl4_ajax_errors();
+
+	@include cl4_icon_defaults();
+
+	/** create the cl4 icons using the cl4 mixins **/
+	@include cl4_icons();
+	@include cl4_arrows();
+	@include cl4_file_types();
+
+	@include cl4_model_code_container();
+}
+
+/** table striping **/
+/* this needs to be up here so things later on can override it, like a hover */
+@mixin tr_odd_even() {
+	tr.even td { background-color: #e4e4e4; }
+	tr.odd td { background-color: #f1f1f1; }
+}
+
+/** styles for cl4 forms **/
+@mixin cl4_form() {
+	/** error styles for required and error fields in forms **/
+	label.cl4_required { color: #f00; }
+	input.cl4_required { } /* todo:add required sprite? */
+	label.cl4_field_error { color: #f00; }
+	input.cl4_field_error, textarea.cl4_field_error { border: 1px solid #f00; }
+
+	/** cl4 table form css **/
+	table.cl4_form td { padding: 4px; border: 1px solid #fff; border-top: none; border-left: none; }
+
+	/** ul form css **/
+	ul.cl4_form li { list-style: none; }
+	ul.cl4_form li ul { width: 450px; }
+	ul.cl4_form li ul li { float: left; width: 200px; }
+
+	/** buttons displayed below the forms **/
+	.cl4_buttons { background-color: #f3db84; padding: 0.4em; margin-top: 0.15em; }
+	.cl4_buttons_top { margin-bottom: 0.2em; }
+	.cl4_buttons input { margin-right: 0.5em; }
+
+	.cl4_tools { margin: 0 0 0.2em 0; line-height: 1.5em; padding: 0.4em 0.7em; }
+}
+
+/** jquery date picker customizations **/
+@mixin cl4_ui_datepicker() {
+	.ui-datepicker-trigger { padding-left: 3px; margin-bottom: -5px; }
+	.ui-datepicker-append { font-size: 0.8em; color: #888; padding-left: 3px; }
+}
+
+
+
+/** multiple edit table **/
+@mixin cl4_edit_multiple() {
+	.cl4_edit_multiple thead tr th, .cl4_edit_multiple tbody tr td { padding:4px; border-bottom:1px solid #fff; border-right:1px solid #fff; }
+	.cl4_edit_multiple thead tr th:last-child, .cl4_edit_multiple tbody tr td:last-child { border-right:none; }
+	.cl4_edit_multiple thead tr th { color:#fff; text-align:left; background:#245698 center right; }
+	/* this is to align the checkbox to check all */
+	.cl4_edit_multiple tr:hover td { background-color:#d6d6d6; }
+}
+
+
+
+/** editable list css **/
+@mixin cl4_editable_list() {
+	/* main page buttons row, appears above the search results and has the add, edit multiple, search, etc. buttons */
+	.cl4_list_header { background-color: #f3db84; padding: 5px 8px; margin: 4px 0 0 0; }
+	.cl4_list_header h2 { display: inline; float: right; padding: 0; margin: 0; font-size: 1.5em; }
+	.cl4_list_header .cl4_add_multiple_count { margin-right: 10px; }
+
+	/** small buttons at the top of a list of records  in admin **/
+	.cl4_list_button { font-family: sans-serif; font-size: 0.9em; margin-right: 10px; }
+}
+
+/* claero custom pagination */
+@mixin cl4_nav() {
+	.cl4_nav { margin: 2px 0; background-color: #e4e4e4; padding: 5px; color: #184a8c; font-size: 1em; width: 100%; overflow: hidden; }
+	.cl4_nav a { color: #184a8c; }
+	.cl4_nav a:hover, .cl4_nav a:active, .cl4_nav a:visited { color: #2f67b2; }
+	.cl4_nav_pages { float: left; }
+	.cl4_nav_showing { float: right; }
+	.cl4_nav .current_page { font-weight: bold; }
+	.cl4_nav select { font-size: 0.7em; }
+}
+
+/** cl4 "content" table for data **/
+@mixin cl4_content() {
+	.cl4_content { width: 100%; }
+	.cl4_content thead tr th, .cl4_content tbody tr td { padding: 3px; border-bottom: 1px solid #fff; border-right: 1px solid #fff; }
+	.cl4_content thead tr th:last-child, .cl4_content tbody tr td:last-child { border-right: none; }
+	.cl4_content thead tr th { color: #fff; text-align: left;  background: #245698 center right; }
+	.cl4_content thead tr th a { font-weight: bold; text-decoration: none; color: #fff; }
+	.cl4_content thead tr th.sort_asc, .cl4_content thead tr th.sort_desc { background-color: #5478a8; }
+	.cl4_content thead tr th .sort_icon { float: right; }
+	.cl4_content thead tr th:hover { background-color: #3e6fb0; }
+	.cl4_content tbody tr td.sort_asc, .cl4_content tbody tr td.sort_desc { background-color: #d6d6d6; }
+	/* this is to align the checkbox to check all */
+	.cl4_content thead tr th.column0 { padding-right: 2px; vertical-align: bottom; }
+	.cl4_content thead tr th.column0 div { width: 100px; text-align: right; }
+	.cl4_content .column0 { width: 100px; text-align: right; }
+	.cl4_content .column0 a { margin-left: 2px; }
+	.cl4_content tr:hover td { background-color: #d6d6d6; }
+	.cl4_content tr.selected td { background-color: #f3db84; }
+
+	/* formatting for message re 0 rows found */
+	.cl4_no_rows { border: #d6d6d6 1px solid; padding: 3px 3px 3px 4px; font-weight: bold; color: #184a8c; }
+}
+
+/** field help **/
+@mixin cl4_field_help() {
+	.cl4_field_help { padding: 0.2em; color: #555; }
+}
+
+/** message formating **/
+@mixin cl4_message($debug_msg_img: "url('message-debug.gif')") {
+	.cl4_message { list-style: none; font-weight: bold; margin: 5px 0; }
+	.cl4_message li { list-style: none; }
+	.cl4_message .error, .cl4_message .warning, .cl4_message .notice, .cl4_message .debug { margin: 2px; padding: 5px; border: 1px dashed #5a5aff; background-color: #dbdbff; }
+	.cl4_message .warning { border-color: #e08900; background-color: #ffdaa0; }
+	.cl4_message .error { border-color: #e50000; background-color: #fea4a4; }
+	.cl4_message .debug { border-color: #44ba30; background: #c7febe $debug_msg_img no-repeat; padding-left: 75px; }
+}
+
+/** formatting for buttons inside delete messages (likely contained in .cl4_message ul) **/
+@mixin cl4_delete_msg() {
+	.cl4_delete_confirm_message input { margin-right: 1em; }
+}
+
+/** formatting for displaying values when viewing records **/
+@mixin cl4_hidden_values() {
+	.cl4_hidden_value, .cl4_not_set, .cl4_unknown { color: #aaa; }
+}
+
+/* adds some space between the date operand and the date field in the search */
+@mixin cl4_date_operand() {
+	.cl4_date_operand { margin-right: 0.5em; }
+}
+
+@mixin cl4_ajax_errors() {
+	#cl4_ajax_errors {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		text-align: center;
+		z-index: 10000;
+	}
+	#cl4_ajax_errors div { display:none; border-bottom:1px solid #6d1c09; background-color:#aa2c0f; font-size:1.3em; color:#fff; padding:7px; }
+	#cl4_ajax_errors div a { color:#fff; }
+	#cl4_ajax_errors div span.dismiss {
+		background-color:#92240a;
+		float:right;
+		margin-right:10px;
+		border:2px solid #6c1906;
+		padding:2px 4px;
+		text-decoration:none;
+		display:block;
+		cursor:pointer;
+		font-size: 0.8em;
+		font-weight:bold;
+	}
+	#cl4_ajax_errors div span.dismiss:hover { background-color:#7e1e07; }
+	#cl4_ajax_errors div span.dismiss a { text-decoration: none; }
+	#cl4_ajax_errors div.cl4_ajax_validation_msg ul { display:inline-block; text-align:left; } /* so this won't display the list of errors on the same line as the prefix msg, add a br after the prefix msg */
+}
+
+
+
+@mixin cl4_icon_defaults() {
+	/* the default icon class that needs to be added to all span tags with cl4 icons in them */
+	/* usage: <span class="cl4_icon cl4_edit">&nbsp;</span> */
+	.cl4_icon { text-decoration: none; display: inline-block; margin: 0 0.2em -0.2em 0.2em; }
+}
+
+@mixin cl4_icons() {
+	.cl4_add { @include cl4_icons-sprite(add); }
+	.cl4_delete { @include cl4_icons-sprite(delete); }
+	.cl4_edit { @include cl4_icons-sprite(edit); }
+	.cl4_view { @include cl4_icons-sprite(view); }
+	.cl4_info { @include cl4_icons-sprite(info); }
+	.cl4_help { @include cl4_icons-sprite(help); }
+	/* cl4_checked is a special class used in ORM_Checkbox, it's corresponding class for unchecked is cl4_unchecked */
+	.cl4_check, .cl4_checked { @include cl4_icons-sprite(check); }
+	.cl4_no_check { @include cl4_icons-sprite(no_check); }
+	.cl4_print { @include cl4_icons-sprite(print); }
+	.cl4_mail { @include cl4_icons-sprite(mail); }
+	.cl4_warning { @include cl4_icons-sprite(warning); }
+	.cl4_flag1 { @include cl4_icons-sprite(flag1); }
+	.cl4_flag2 { @include cl4_icons-sprite(flag2); }
+	.cl4_gear { @include cl4_icons-sprite(gear); }
+	.cl4_wrench { @include cl4_icons-sprite(wrench); }
+	.cl4_link { @include cl4_icons-sprite(link); }
+	.cl4_alert { @include cl4_icons-sprite(alert); }
+	.cl4_contact { @include cl4_icons-sprite(contact); }
+	.cl4_contact2 { @include cl4_icons-sprite(contact2); }
+	.cl4_checkmark { @include cl4_icons-sprite(checkmark); }
+	.cl4_no_checkmark { @include cl4_icons-sprite(no_checkmark); }
+	.cl4_globe { @include cl4_icons-sprite(globe); }
+	.cl4_refresh { @include cl4_icons-sprite(refresh); }
+	.cl4_calendar1 { @include cl4_icons-sprite(calendar1); }
+	.cl4_calendar2 { @include cl4_icons-sprite(calendar2); }
+	.cl4_grid { @include cl4_icons-sprite(grid); }
+	.cl4_minus { @include cl4_icons-sprite(minus); }
+	.cl4_download { @include cl4_icons-sprite(download); }
+	.cl4_lock { @include cl4_icons-sprite(lock); }
+}
+
+@mixin cl4_arrows() {
+	.cl4_right { @include cl4_arrows-sprite(right); }
+	.cl4_left { @include cl4_arrows-sprite(left); }
+	.cl4_up { @include cl4_arrows-sprite(up); }
+	.cl4_down { @include cl4_arrows-sprite(down); }
+	.cl4_no_right { @include cl4_arrows-sprite(no_right); }
+	.cl4_no_left { @include cl4_arrows-sprite(no_left); }
+	.cl4_no_up { @include cl4_arrows-sprite(no_up); }
+	.cl4_no_down { @include cl4_arrows-sprite(no_down); }
+	.cl4_open_down { @include cl4_arrows-sprite(open_down); }
+	.cl4_open_up { @include cl4_arrows-sprite(open_up); }
+	.cl4_open_right { @include cl4_arrows-sprite(open_right); }
+	.cl4_open_left { @include cl4_arrows-sprite(open_left); }
+}
+
+@mixin cl4_file_types() {
+	.cl4_pdf { @include cl4_file_types-sprite(pdf); }
+	.cl4_word { @include cl4_file_types-sprite(word); }
+	.cl4_excel { @include cl4_file_types-sprite(excel); }
+	.cl4_powerpoint { @include cl4_file_types-sprite(powerpoint); }
+	.cl4_image { @include cl4_file_types-sprite(image); }
+	.cl4_acrobat { @include cl4_file_types-sprite(acrobat); }
+}
+
+/** for model create in cl4 admin **/
+@mixin cl4_model_code_container() {
+	.cl4_model_code_container { width:100%; height:800px; margin:15px 0; }
+}
