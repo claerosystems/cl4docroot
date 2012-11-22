@@ -86,30 +86,6 @@ cl4.model_select_change = function() {
 	window.location = '/dbadmin/' + $('#cl4_model_select').val() + '/index';
 };
 
-cl4.click_multiple_edit = function(checked) {
-	if (checked) {
-		++ cl4.multiple_edit_count;
-	} else {
-		-- cl4.multiple_edit_count;
-	}
-	var button = document.getElementById('submit_multiple_edit');
-	if (button) {
-		if (cl4.multiple_edit_count) {
-			button.removeAttribute('disabled');
-		} else {
-			button.setAttribute('disabled', 'disabled');
-		}
-	}
-
-	if (!checked) {
-		// if a checkbox has been unchecked, then uncheck the check all checkbox
-		c = document.getElementById('c_check_all');
-		if (c) {
-			c.checked = false;
-		}
-	}
-};
-
 if (typeof $.datepicker != 'undefined') {
 	// defaults for the date picker; these are necessary so the date picker within cl4 work
 	$.datepicker.setDefaults({
