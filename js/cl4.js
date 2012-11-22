@@ -86,30 +86,6 @@ cl4.model_select_change = function() {
 	window.location = '/dbadmin/' + $('#cl4_model_select').val() + '/index';
 };
 
-/**
-* Checks all the checkboxes, used in get_editable_list()
-*/
-cl4.check_all = function(f, name, checked) {
-	if (arguments.length == 2) { checked = true; }
-	count = 0;
-	var form = GetById(f);
-	var children = GetByTagName(f, "input");
-	for (i = 0; i < children.length; i++) {
-		if (children[i].type == "checkbox") {
-			if (!name || children[i].name == name) {
-				children[i].checked = checked;
-				if (children[i].checked) count++;
-			}
-		}
-	}
-
-	if (checked) {
-		return count-1;
-	} else {
-		return 0;
-	}
-};
-
 cl4.click_multiple_edit = function(checked) {
 	if (checked) {
 		++ cl4.multiple_edit_count;
@@ -165,23 +141,3 @@ $(function() {
 	$('#cl4_model_select_form').change(cl4.model_select_change);
 	$('#cl4_model_select_go').click(cl4.model_select_change);
 });
-
-// get a reference to an element by id
-function GetById(id) {
-	if (typeof id == "string") {
-		return document.getElementById(id);
-	} else {
-		return id;
-	}
-}
-
-// retrieves a list of all child tags with the appropriate name
-function GetByTagName(tag, name) {
-	if (arguments.length == 1) {
-		return document.getElementsByTagName(tag);
-	} else {
-		var t = GetById(tag);
-		if (! t) { return false; }
-		return t.getElementsByTagName(name);
-	}
-}
