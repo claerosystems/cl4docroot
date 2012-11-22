@@ -90,7 +90,7 @@
 
 /* claero custom pagination */
 @mixin cl4_nav() {
-	.cl4_nav { margin: 2px 0; background-color: #e4e4e4; padding: 5px; color: #184a8c; font-size: 1em; width: 100%; overflow: hidden; }
+	.cl4_nav { margin: 2px 0; background-color: #e4e4e4; padding: 0.40%; color: #184a8c; font-size: 1em; width: 99.3%; overflow: hidden; }
 	.cl4_nav a { color: #184a8c; }
 	.cl4_nav a:hover, .cl4_nav a:active, .cl4_nav a:visited { color: #2f67b2; }
 	.cl4_nav_pages { float: left; }
