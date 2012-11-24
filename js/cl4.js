@@ -9,10 +9,21 @@ cl4.multiple_edit_count = 0;
 * This is used when you click on the top row buttons in editable list (eg. Search, Add New, Edit Selected, etc.)
 */
 cl4.button_link_form = function() {
-	var button_form_action = $(this).data('cl4_form_action');
+	var button_form_action = $(this).data('cl4_form_action'),
+		form,
+		form_target;
 	if (button_form_action) {
-		$(this.form).attr('action', button_form_action);
-		$(this.form).attr('target', $(this).data('cl4_form_target'));
+		form = $(this.form);
+		form.attr('action', button_form_action);
+
+		// check to see if we have a target
+		// if we don't, "unset" the target on the form
+		form_target = $(this).data('cl4_form_target');
+		if (form_target) {
+			form.attr('target', form_target);
+		} else {
+			form.attr('target', '');
+		}
 	}
 };
 
@@ -20,8 +31,10 @@ cl4.button_link_form = function() {
 * Go to another URL based on the data-cl4_link parameter
 */
 cl4.button_link = function() {
-	link = $(this).data('cl4_link');
-	if (link) window.location = link;
+	var link = $(this).data('cl4_link');
+	if (link) {
+		window.location = link;
+	}
 };
 
 cl4.multiple_edit = function() {
@@ -36,10 +49,11 @@ cl4.export_selected = function() {
 * For adding multiple records, uses cl4_add_multiple_related_button on the select and cl4_add_multiple_form_action_prefix on the button
 */
 cl4.add_multiple_form = function() {
-	$count_select = $(this);
-	// unfortunately we "have" to use an ID because there is the possibility of there being multiple buttons on the same page
-	$add_multiple_button = $('#' + $count_select.data('cl4_add_multiple_related_button'));
-	$add_multiple_button.data('cl4_form_action', $add_multiple_button.data('cl4_add_multiple_form_action_prefix') + '/' + $count_select.val());
+	var count_select = $(this),
+		// unfortunately we "have" to use an ID because there is the possibility of there being multiple buttons on the same page
+		add_multiple_button = $('#' + count_select.data('cl4_add_multiple_related_button')),
+		add_multiple_form_action_prefix = add_multiple_button.data('cl4_add_multiple_form_action_prefix');
+	add_multiple_button.data('cl4_form_action', add_multiple_form_action_prefix + '/' + count_select.val());
 };
 
 /**
@@ -59,12 +73,12 @@ cl4.multiple_edit_form = function() {
 * Checks all the checkboxes that have the class found in the data attribute data-cl4_check_all_checkbox_class
 */
 cl4.check_all_checkbox = function() {
-	$checkbox = $(this);
-	if ($checkbox.filter(':checked').length > 0) {
+	var checkbox = $(this);
+	if (checkbox.filter(':checked').length > 0) {
 		// trigger change so that any functionality related to the checkbox changing value will be triggered
-		$('.' + $checkbox.data('cl4_check_all_checkbox_class')).attr('checked', 'checked').change();
+		$('.' + checkbox.data('cl4_check_all_checkbox_class')).attr('checked', 'checked').change();
 	} else {
-		$('.' + $checkbox.data('cl4_check_all_checkbox_class')).removeAttr('checked').change();
+		$('.' + checkbox.data('cl4_check_all_checkbox_class')).removeAttr('checked').change();
 	}
 };
 
