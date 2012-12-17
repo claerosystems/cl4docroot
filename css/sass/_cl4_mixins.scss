@@ -186,6 +186,7 @@
 	/* the default icon class that needs to be added to all span tags with cl4 icons in them */
 	/* usage: <span class="cl4_icon cl4_edit">&nbsp;</span> */
 	.cl4_icon { text-decoration: none; display: inline-block; margin: 0 0.2em -0.2em 0.2em; }
+	.cl4_no_icon { height: 14px; width: 14px; }
 }
 
 @mixin cl4_icons() {
