@@ -42,17 +42,17 @@ cl4.add_message_div = function(msg, div_class) {
 		div_class = '';
 	}
 
-	var $msg_div = $('<div' + div_class + '><span class="dismiss"><a href="">X</a></span>' + msg + '</div>');
+	var $msg_div = $('<div' + div_class + '><span class="dismiss js_dismiss"><a href="">X</a></span>' + msg + '</div>');
 
 	$('#cl4_ajax_errors').append($msg_div);
 	$msg_div.slideDown(cl4.animate_ajax_body_margin)
-	.find('span.dismiss a').click(function(e) {
-		e.preventDefault();
-		$(this).parent().parent().slideUp(function() {
-			$(this).remove();
-			cl4.animate_ajax_body_margin();
+		.find('.js_dismiss').on('click', function(e) {
+			e.preventDefault();
+			$(this).parent().parent().slideUp(function() {
+				$(this).remove();
+				cl4.animate_ajax_body_margin();
+			});
 		});
-	});
 };
 
 /**
