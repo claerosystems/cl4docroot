@@ -5,7 +5,7 @@ var cl4 = {};
 * Set the form action based on the source button input data-cl4_form_action parameter.
 * This is used when you click on the top row buttons in editable list (eg. Search, Add New, Edit Selected, etc.)
 */
-cl4.button_link_form = function() {
+cl4.js_cl4_button_link_form = function() {
 	var button_form_action = $(this).data('cl4_form_action');
 	if (button_form_action) {
 		$(this.form).attr('action', button_form_action);
