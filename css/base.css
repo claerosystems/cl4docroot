@@ -1,0 +1,426 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* Start with core styles outside of a media query that apply to mobile and up */
+/* Global typography and design elements, stacked containers */
+body {  }
+h1 { font-size:1em; margin:0; padding:0.2em 0 1em 0; }
+a:link {  }
+.login {width:100%; max-width:400px; margin-left:auto; margin-right:auto;}
+.register {margin-left:auto; margin-right:auto;}
+.clearfix {clear:both;}
+
+.messages div {margin-bottom:4px;}
+
+.phone div.ui-input-text .cl4_phone_field-country_code {width:12px;}
+.phone .cl4_phone_field-area_code, #dialog_form .credit_card_form .cl4_phone_field-exchange {width:25px;}
+.phone .cl4_phone_field-line {width:30px;}
+.phone .cl4_phone_field-extension {width:15px;}
+
+.phonediv div {display:inline;}
+
+.phone_grid {}
+.phone_sep, .phone_int_code, .phone_area_code, .phone_exchange, .phone_line {
+	-moz-box-sizing: border-box;
+	border: 0 none;
+	float: left;
+	margin: 0;
+	min-height: 1px;
+	padding: 0;
+}
+.phone_sep {width:10px; height:2.2em; padding:9px 4px 9px 2px; line-height:2em;}
+.phone_int_code {width:25px;}
+.phone_area_code {width:45px;}
+.phone_exchange {width:45px;}
+.phone_line {width:55px;}
+
+.responsive_list {width:100%;}
+.responsive_form {width:100%;}
+
+.development_msg {text-align:center; font-size:0.8em; text-shadow: none; background-color:#333; color:#fffedf; padding:4px 0 1px 0; text-transform:uppercase;}
+
+#page_login h1, #page_timedout h1 {text-align:center;}
+
+/* fixing menu spacing so all the text appears on small screens */
+.ui-mini .ui-btn-icon-right .ui-btn-inner {}
+.ui-btn-inner {text-overflow:clip;}
+.ui-overlay-c, .ui-body-c {background:white;}
+
+option {font-size:1.6em;}
+
+/* cl4 admin mods */
+table.cl4_content thead tr th div a.ui-link {color:#fff; text-shadow:none;}
+
+ul.ui-listview li, .ui-btn { font-size:0.8em; }
+
+.controlgroup-textinput {
+	padding-top:.22em;
+	padding-bottom:.22em;
+}
+
+.ui-header .ui-block-b h1 {padding:0; margin:0; text-align:center;}
+.ui-header .ui-block-c .ui-body {display:none;}
+
+.ui-content .ui-listview {margin-top:0;}
+
+/* Custom indentations are needed because the length of custom labels differs from
+   the length of the standard labels */
+.custom-label-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+	text-indent: -3.4em;
+}
+.custom-label-flipswitch.ui-flipswitch .ui-flipswitch-off {
+	text-indent: 0.5em;
+}
+
+.admin_two_column .responsive_form {width:470px;}
+
+/* First breakpoint at 576px */
+@media all and (min-width: 576px) {
+	ul.ui-listview li, .ui-btn { font-size:0.9em; }
+	h1 { font-size:1.5em; padding:0.2em 0 0.7em 0; }
+	.responsive_list {width:30em;}
+	.responsive_form {width:36em;}
+	.development_msg {font-size:1.2em;}
+	.teslogo img {width:100%;}
+	.teslogo {padding:10px 0px 10px 0px;}
+
+	.ui-header .ui-block-c .ui-body {display:block; padding-top:5px; text-align:right; font-size:0.9em; color:#666; font-weight:normal;}
+
+	.file_table th.column4, .file_table td.column4 {text-align:right;}
+	.file_table th.column9, .file_table td.column0 {width:450px;}
+}
+
+/* Second breakpoint at 900px */
+@media all and (min-width: 900px) {
+	ul.ui-listview li, .ui-btn { font-size:1em; }
+	h1 { font-size:1.8em; padding:0.2em 0 0.8em 0; }
+	.development_msg {font-size:1.5em;}
+
+	/* Show the table header rows and set all cells to display: table-cell */
+	.responsive_table td,
+	.responsive_table th,
+	.responsive_table tbody th,
+	.responsive_table tbody td,
+	.responsive_table thead td,
+	.responsive_table thead th {
+		display: table-cell;
+		margin: 0;
+	}
+	/* Hide the labels in each cell */
+	.responsive_table td .ui-table-cell-label,
+	.responsive_table th .ui-table-cell-label {
+		display: none;
+	}
+
+	.ui-content {width:900px; margin-left:auto; margin-right:auto;}
+	#page_cl4admin .ui-content {width:100%; margin:0;}
+}
+
+/* Stack all blocks to start */
+.admin_two_column .ui-block-a,
+.admin_two_column .ui-block-b {
+	width: 100%;
+	float: none;
+}
+@media all and (min-width: 1000px) {
+	.admin_two_column .ui-block-a,
+	.admin_two_column .ui-block-b {
+		float: left;
+		width: 49.95%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
