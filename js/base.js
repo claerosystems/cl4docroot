@@ -9,13 +9,43 @@ $(document).on("mobileinit", function () {
 	// Reference: http://api.jquerymobile.com/global-config/
 	$.mobile.ajaxEnabled = false;
 	//$.mobile.ignoreContentEnabled = true;
+
+
+	window.onresize = function (event) {
+		if (window.innerWidth > 800) {
+			window.setTimeout(openPanel, 1);
+		}
+		if (window.innerWidth < 800) {
+			window.setTimeout(closePanel, 1);
+		}
+	};
+	function closePanel() {
+		$("#mainmenu").panel("close");
+	}
+	function openPanel() {
+		$("#mainmenu").panel("open");
+	}
+	$( "#mainmenu" ).on( "panelcreate", function( event, ui ) {
+		if (window.innerWidth > 800) {
+			openPanel();
+		}
+		if (window.innerWidth < 800) {
+			closePanel();
+		}
+	});
 });
+
+
 
 // PERFORM ACTIONS ON PAGE LOAD SINCE PAGES ARE LOADED VIA AJAX WITH JQUERY MOBILE
 // These are based on the page div id
 
 $(document).on('pageshow', function () {
-	//wine.console('pageshow head');
+	//$( "#mainmenu" ).panel("open");
+});
+
+$(document).on('pageload', function () {
+	//$( "#mainmenu" ).panel("open");
 });
 
 $(document).on('pagebeforeshow', function () {
@@ -24,8 +54,6 @@ $(document).on('pagebeforeshow', function () {
 });
 
 $(document).on('pageshow', "#page_cl4admin", function () {
-	//wine.console('cl4admin page loaded');
-	//wine.setup_cl4_admin();
 });
 
 $(document).on('pagebeforeshow', "#page_login", function () {
