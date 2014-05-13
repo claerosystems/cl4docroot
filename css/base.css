@@ -132,6 +132,8 @@ a:link {  }
 .responsive_list {width:100%;}
 .responsive_form {width:100%;}
 
+.center {text-align:center;}
+
 .development_msg {text-align:center; font-size:0.8em; text-shadow: none; background-color:#333; color:#fffedf; padding:4px 0 1px 0; text-transform:uppercase;}
 
 #page_login h1, #page_timedout h1 {text-align:center;}

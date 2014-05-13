@@ -38,6 +38,22 @@ $(document).on('pagebeforeshow', "#page_login", function () {
 	} else {
 		$('#password').focus();
 	}
+
+	$('#reset_password').click(function() {
+		main.show_page_load(this);
+		$.ajax({
+			type: 'POST',
+			url: 'forgot',
+			data: 'reset_username=' + $('#reset_username').val(),
+			dataType: 'json',
+			success: function(data) {
+				window.location='/';
+			},
+			error: function(msg) {
+				window.location='/';
+			}
+		});
+	});
 });
 
 $(document).on( "click", ".show-page-loading-msg", function() {
