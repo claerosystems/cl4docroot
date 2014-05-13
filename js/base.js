@@ -10,42 +10,18 @@ $(document).on("mobileinit", function () {
 	$.mobile.ajaxEnabled = false;
 	//$.mobile.ignoreContentEnabled = true;
 
-
-	window.onresize = function (event) {
-		if (window.innerWidth > 800) {
-			window.setTimeout(openPanel, 1);
-		}
-		if (window.innerWidth < 800) {
-			window.setTimeout(closePanel, 1);
-		}
-	};
-	function closePanel() {
-		$("#mainmenu").panel("close");
-	}
-	function openPanel() {
-		$("#mainmenu").panel("open");
-	}
-	$( "#mainmenu" ).on( "panelcreate", function( event, ui ) {
-		if (window.innerWidth > 800) {
-			openPanel();
-		}
-		if (window.innerWidth < 800) {
-			closePanel();
-		}
-	});
 });
-
-
 
 // PERFORM ACTIONS ON PAGE LOAD SINCE PAGES ARE LOADED VIA AJAX WITH JQUERY MOBILE
 // These are based on the page div id
 
+$(document).on( "pageshow", "[data-role='page']", function() {
+});
+
 $(document).on('pageshow', function () {
-	//$( "#mainmenu" ).panel("open");
 });
 
 $(document).on('pageload', function () {
-	//$( "#mainmenu" ).panel("open");
 });
 
 $(document).on('pagebeforeshow', function () {

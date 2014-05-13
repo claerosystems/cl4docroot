@@ -172,6 +172,9 @@ ul.ui-listview li, .ui-btn { font-size:0.8em; }
 #mainmenu img {width:240px;}
 #mainmenu ul {margin-top:6px;}
 
+.mobile_off {display:none;}
+.mobile_on {display:block;}
+
 /* First breakpoint at 576px */
 @media all and (min-width: 576px) {
 	ul.ui-listview li, .ui-btn { font-size:0.9em; }
@@ -181,7 +184,9 @@ ul.ui-listview li, .ui-btn { font-size:0.8em; }
 	.development_msg {font-size:1.2em;}
 	.teslogo img {width:100%;}
 	.teslogo {padding:10px 0px 10px 0px;}
-	#template_header {display:none;}
+
+	.mobile_off {display:block;}
+	.mobile_on {display:none;}
 
 	.ui-header .ui-block-c .ui-body {display:block; padding-top:5px; text-align:right; font-size:0.9em; color:#666; font-weight:normal;}
 
