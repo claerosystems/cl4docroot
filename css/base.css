@@ -99,7 +99,8 @@ textarea {
 /* Start with core styles outside of a media query that apply to mobile and up */
 /* Global typography and design elements, stacked containers */
 body {  }
-h1 { font-size:1em; margin:0; padding:0.2em 0 1em 0; }
+h1 { font-size:1.6em; margin:0; padding:0.2em 0 1em 0; }
+h2 { font-size:1.4em; margin:0; padding:0.2em 0 0.2em 0; }
 a:link {  }
 .login {width:100%; max-width:400px; margin-left:auto; margin-right:auto;}
 .register {margin-left:auto; margin-right:auto;}
@@ -148,6 +149,14 @@ option {font-size:1.6em;}
 /* cl4 admin mods */
 table.cl4_content thead tr th div a.ui-link {color:#fff; text-shadow:none;}
 
+/* JQUERY UI OVERRIDES */
+.ui-table th, .ui-table td {
+	line-height:normal;        /* default: 1.5em */
+	padding: 0.4em 0.5em;      /* default: 0.4em 0.5em */
+}
+.ui-field-contain > label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain > .ui-rangeslider > label {width:30% !important;} /* default 20% */
+.ui-field-contain > label + [class*="ui-"], .ui-field-contain .ui-controlgroup-controls {width:68% !important;} /* default 78% */
+
 ul.ui-listview li, .ui-btn { font-size:0.8em; }
 
 .controlgroup-textinput {
@@ -159,6 +168,14 @@ ul.ui-listview li, .ui-btn { font-size:0.8em; }
 .ui-header .ui-block-c .ui-body {display:none;}
 
 .ui-content .ui-listview {margin-top:0;}
+
+.cl4_content th, table.cl4_content td {font-size:0.85em;}
+table.cl4_content td {line-height:0.9em;}
+.cl4_content thead tr th a {font-weight:normal;}
+.cl4_content tbody tr td {padding:6px 0px 3px 3px;}
+.cl4_content .ui-checkbox input, .cl4_content .ui-radio input {height:18px; width:18px; margin:6px 0px 0px 2px; left:0; top:0; position:relative;}
+.cl4_content .ui-checkbox, .cl4_content .ui-radio {display:inline; margin:-5px 0px 0px 0px;}
+.cl4_content td.column0 {padding-top:0; top:-6px;}
 
 /* Custom indentations are needed because the length of custom labels differs from
    the length of the standard labels */
@@ -177,6 +194,11 @@ ul.ui-listview li, .ui-btn { font-size:0.8em; }
 .mobile_off {display:none;}
 .mobile_on {display:block;}
 
+/*.cost { position:absolute; margin-left:4px; margin-top:5px; z-index:999; }*/
+/*.cost {position: relative; left:20px;}*/
+/*.cl4_money { text-indent:11px;}*/
+/*input.cl4_money::before {content:"$"}*/
+
 /* First breakpoint at 576px */
 @media all and (min-width: 576px) {
 	ul.ui-listview li, .ui-btn { font-size:0.9em; }
@@ -194,6 +216,26 @@ ul.ui-listview li, .ui-btn { font-size:0.8em; }
 
 	.file_table th.column4, .file_table td.column4 {text-align:right;}
 	.file_table th.column9, .file_table td.column0 {width:450px;}
+
+	/* JQUERY UI OVERRIDES */
+	.ui-field-contain, .ui-mobile fieldset.ui-field-contain {margin-top:2px !important; margin-bottom:2px !important;}
+	.ui-input-text input, .ui-input-search input {
+		min-height: 1em;
+	}
+	.ui-btn {
+		padding-bottom:2px;
+		padding-top:4px;
+	}
+	.ui-field-contain > label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain > .ui-rangeslider > label {
+		margin-top:4px;
+	}
+	.ui-mobile label, div.ui-controlgroup-label {font-size:0.9em;}
+
+	.ui-controlgroup-controls .ui-input-text input,
+	.ui-controlgroup-controls .ui-input-search input,
+	.ui-controlgroup-controls textarea.ui-input-text {padding:0;}
+
+	.ui-controlgroup-controls .ui-input-text {padding-top:5px; padding-bottom:4px;}
 }
 
 /* Second breakpoint at 900px */
