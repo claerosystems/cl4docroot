@@ -7,29 +7,29 @@ var base = {};
  */
 $(document).on("mobileinit", function () {
 	// Reference: http://api.jquerymobile.com/global-config/
-	$.mobile.ajaxEnabled = false;
+	//$.mobile.ajaxEnabled = false;
 	//$.mobile.ignoreContentEnabled = true;
 
 });
 
 // PERFORM ACTIONS ON PAGE LOAD SINCE PAGES ARE LOADED VIA AJAX WITH JQUERY MOBILE
-// These are based on the page div id
-
-$(document).on( "pageshow", "[data-role='page']", function() {
-});
-
-$(document).on('pageshow', function () {
-});
-
-$(document).on('pageload', function () {
-});
-
-$(document).on('pagebeforeshow', function () {
-	// clear any messages
-	$('div.messages').html();
-});
 
 $(document).on('pageshow', "#page_cl4admin", function () {
+	// buttons and checkbox at the top of an editable list
+	$('.js_cl4_button_link_form').on('click', cl4.button_link_form);
+	$('.js_cl4_button_link').on('click', cl4.button_link);
+	$('.js_cl4_multiple_edit').on('click', cl4.multiple_edit);
+	$('.js_cl4_export_selected').on('click', cl4.export_selected);
+	$('.js_cl4_multiple_edit_form').on('change', cl4.multiple_edit_form);
+	$('.js_cl4_check_all_checkbox').on('click', cl4.check_all_checkbox);
+	$('.cl4_add_multiple_count').on('change', cl4.add_multiple_form);
+
+	// for checkboxes in tables to add .selected to the row
+	$('.js_cl4_row_checkbox').on('change', cl4.row_checked);
+
+	// found in views/cl4/cl4admin/header.php
+	$('.js_cl4_model_select_form').on('change', cl4.model_select_change);
+	$('.js_cl4_model_select_go').on('click', cl4.model_select_change);
 });
 
 $(document).on('pagebeforeshow', "#page_login", function () {
