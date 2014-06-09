@@ -157,7 +157,7 @@ table.cl4_content thead tr th div a.ui-link {color:#fff; text-shadow:none;}
 .ui-field-contain > label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain > .ui-rangeslider > label {width:30% !important;} /* default 20% */
 .ui-field-contain > label + [class*="ui-"], .ui-field-contain .ui-controlgroup-controls {width:68% !important;} /* default 78% */
 
-ul.ui-listview li, .ui-btn { font-size:0.8em; }
+ul.ui-listview li, .ui-btn { font-size:1em; }
 
 .controlgroup-textinput {
 	padding-top:.22em;
@@ -201,7 +201,7 @@ table.cl4_content td {line-height:0.9em;}
 
 /* First breakpoint at 576px */
 @media all and (min-width: 576px) {
-	ul.ui-listview li, .ui-btn { font-size:0.9em; }
+	ul.ui-listview li, .ui-btn { font-size:1.05em; }
 	h1 { font-size:1.5em; padding:0.2em 0 0.7em 0; }
 	.responsive_list {width:30em;}
 	.responsive_form {width:36em;}
@@ -240,7 +240,7 @@ table.cl4_content td {line-height:0.9em;}
 
 /* Second breakpoint at 900px */
 @media all and (min-width: 900px) {
-	ul.ui-listview li, .ui-btn { font-size:1em; }
+	ul.ui-listview li, .ui-btn { font-size:1.1em; }
 	h1 { font-size:1.8em; padding:0.2em 0 0.8em 0; }
 	.development_msg {font-size:1.5em;}
 
