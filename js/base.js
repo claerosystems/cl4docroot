@@ -229,6 +229,10 @@ base.process_ajax = function(return_data) {
 	} // switch
 }
 
+base.reload_page = function() {
+	window.location.href = window.location.href;
+}
+
 base.show_page_load = function(target) {
 
 	var $this = $( target ),
