@@ -234,8 +234,9 @@ table.cl4_content td {line-height:0.9em;}
 	.ui-controlgroup-controls .ui-input-text input,
 	.ui-controlgroup-controls .ui-input-search input,
 	.ui-controlgroup-controls textarea.ui-input-text {padding:0;}
-
+/*20140620 CSN this is messing things up in horizontal control groups, not sure whey it was done - it might break something else but I am commenting out for now
 	.ui-controlgroup-controls .ui-input-text {padding-top:5px; padding-bottom:4px;}
+*/
 }
 
 /* Second breakpoint at 900px */
