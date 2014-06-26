@@ -14,6 +14,10 @@ $(document).on("mobileinit", function () {
 
 // PERFORM ACTIONS ON PAGE LOAD SINCE PAGES ARE LOADED VIA AJAX WITH JQUERY MOBILE
 
+$(document).on('pageshow', function () {
+	base.add_suggest();
+});
+
 $(document).on('pageshow', "#page_cl4admin", function () {
 	base.setup_admin_page();
 });
@@ -53,6 +57,55 @@ $(document).on( "click", ".show-page-loading-msg", function() {
  * Here are the base methods:
  * ********************************************************************************************************************************
  */
+
+/**
+ * add the suggest feature to any relevant input fields (with class js_cl4_suggest, as per Form::suggest())
+ */
+base.add_suggest = function() {
+	$('.js_cl4_suggest').on('keyup', function(e, data) {
+		var search_field = $(this);
+		var value = $(this).val();
+		var model_name = $(this).data('model_name');
+		var column_name = $(this).data('column_name');
+		var result_ul = $('#ajax_search_' + column_name);
+		var value_field = 
+
+		if (value && value.length > 2) {
+			base.console('ajax suggest activated for field ' + column_name);
+
+			// add the waiting indicator
+			result_ul.html('<li><i class="fa fa-cog fa-spin"></i> loading...</li>').listview("refresh").fadeIn();
+
+			$.ajax({
+				type: 'GET',
+				cache: false,
+				url: '/dbadmin/' + model_name + '/lookup/0/' + column_name + '?q=' + value,
+				dataType: 'json',
+				success: function(response) {
+					var html = "";
+					// populate the result listing
+					$.each(response.data, function (i, val) {
+						html += '<li data-id="' + val.id + '">' + val.name + "</li>";
+					});
+					result_ul.html(html);
+					result_ul.listview("refresh");
+					result_ul.trigger("updatelayout");
+
+					// add the click action on the result items
+					$('#ajax_search_' + column_name + " > li").on('click', function() {
+						search_field.val($(this).text());
+						alert($(this).text());
+						//$(this).data('id')
+						search_field.trigger('onblur');
+						result_ul.fadeOut();
+					});
+				},
+				error: function(msg) {
+				}
+			});
+		}
+	});
+}
 
 /**
  * log a message to the javascript console if supported
