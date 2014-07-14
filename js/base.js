@@ -15,6 +15,7 @@ $(document).on("mobileinit", function () {
 // PERFORM ACTIONS ON PAGE LOAD SINCE PAGES ARE LOADED VIA AJAX WITH JQUERY MOBILE
 
 $(document).on('pageshow', function () {
+	// add generic suggest fields (ORM type suggest)
 	base.add_suggest();
 });
 
@@ -22,7 +23,7 @@ $(document).on('pageshow', "#page_cl4admin", function () {
 	base.setup_admin_page();
 });
 
-$(document).on('pagebeforeshow', "#page_login", function () {
+$(document).on('pageshow', "#page_login", function () {
 	if ($('#username').val() == '') {
 		$('#username').focus();
 	} else {
@@ -30,7 +31,7 @@ $(document).on('pagebeforeshow', "#page_login", function () {
 	}
 
 	$('#reset_password').click(function() {
-		main.show_page_load(this);
+		base.show_page_load(this);
 		$.ajax({
 			type: 'POST',
 			url: 'forgot',
@@ -47,7 +48,7 @@ $(document).on('pagebeforeshow', "#page_login", function () {
 });
 
 $(document).on( "click", ".show-page-loading-msg", function() {
-	main.show_page_load(this);
+	base.show_page_load(this);
 }).on( "click", ".hide-page-loading-msg", function() {
 	$.mobile.loading( "hide" );
 });
@@ -68,7 +69,7 @@ base.add_suggest = function() {
 		var model_name = $(this).data('model_name');
 		var column_name = $(this).data('column_name');
 		var result_ul = $('#ajax_search_' + column_name);
-		var value_field = 
+		var value_field = $('#id_for_' + search_field.attr('name'));
 
 		if (value && value.length > 2) {
 			base.console('ajax suggest activated for field ' + column_name);
@@ -94,9 +95,7 @@ base.add_suggest = function() {
 					// add the click action on the result items
 					$('#ajax_search_' + column_name + " > li").on('click', function() {
 						search_field.val($(this).text());
-						alert($(this).text());
-						//$(this).data('id')
-						search_field.trigger('onblur');
+						value_field.val($(this).data('id'));
 						result_ul.fadeOut();
 					});
 				},
