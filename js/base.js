@@ -69,10 +69,11 @@ base.add_suggest = function() {
 		var model_name = $(this).data('model_name');
 		var column_name = $(this).data('column_name');
 		var result_ul = $('#ajax_search_' + column_name);
-		var value_field = $('#id_for_' + search_field.attr('name'));
+		var value_field = $('#id_for_' + model_name + '_' + column_name); // this field is set up in classes/Form.php
 
 		if (value && value.length > 2) {
-			base.console('ajax suggest activated for field ' + column_name);
+			base.console('ajax suggest activated for model ' + model_name + ' and field ' + column_name + ' id will go to field: ' + '#id_for_' + model_name + '_' + column_name);
+            //base.console('the id will be stored at ' + '#id_for_' + search_field.attr('name'))
 
 			// add the waiting indicator
 			result_ul.html('<li><i class="fa fa-cog fa-spin"></i> loading...</li>').listview("refresh").fadeIn();
@@ -94,8 +95,10 @@ base.add_suggest = function() {
 
 					// add the click action on the result items
 					$('#ajax_search_' + column_name + " > li").on('click', function() {
+                        base.console('id ' + $(this).data('id') + ' stored for ' + $(this).text() + ' in ' + '#id_for_' + model_name + '_' + column_name);
 						search_field.val($(this).text());
-						value_field.val($(this).data('id'));
+                        // set the id value and spark a change event so that we can add custom code in our application to catch the change
+                        $('#id_for_' + model_name + '_' + column_name).val($(this).data('id')).change();
 						result_ul.fadeOut();
 					});
 				},
