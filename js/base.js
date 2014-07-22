@@ -41,7 +41,8 @@ $(document).on('pageshow', "#page_login", function () {
 				window.location='/';
 			},
 			error: function(msg) {
-				window.location='/';
+                alert('rest password ajax call failed, please contact your system administrator');
+			    window.location='/';
 			}
 		});
 	});
