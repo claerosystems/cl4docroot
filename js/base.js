@@ -66,18 +66,28 @@ $(document).on( "click", ".show-page-loading-msg", function() {
 base.add_suggest = function() {
 	$('.js_cl4_suggest').on('keyup', function(e, data) {
 		var search_field = $(this);
+		var search_field_id = search_field.attr('id');
 		var value = $(this).val();
 		var model_name = $(this).data('model_name');
 		var column_name = $(this).data('column_name');
-		var result_ul = $('#ajax_search_' + column_name);
-		var value_field = $('#id_for_' + model_name + '_' + column_name); // this field is set up in classes/Form.php
+		var result_ul = $('#ajax_search_for_' + search_field_id); // this field is created by classes/Form.php
+		var value_field = $('#id_for_' + search_field_id); // this field is created by classes/Form.php
+
+		// refresh the ul in case it was just added
+
+		// set up the search results list view
+		//if (result_ul.hasClass('ui-listview')) {
+		//	$(result_ul).listview('refresh');
+		//} else {
+		//	$(result_ul).trigger('create');
+		//}
 
 		if (value && value.length > 2) {
-			base.console('ajax suggest activated for model ' + model_name + ' and field ' + column_name + ' id will go to field: ' + '#id_for_' + model_name + '_' + column_name);
+			base.console('ajax suggest activated for model ' + model_name + ' and field ' + column_name + ' id will go to field: ' + '#id_for_' + search_field_id);
             //base.console('the id will be stored at ' + '#id_for_' + search_field.attr('name'))
 
 			// add the waiting indicator
-			result_ul.html('<li><i class="fa fa-cog fa-spin"></i> loading...</li>').listview("refresh").fadeIn();
+			result_ul.html('<li><i class="fa fa-cog fa-spin"></i> loading...</li>').listview().listview("refresh").fadeIn();
 
 			$.ajax({
 				type: 'GET',
@@ -95,11 +105,11 @@ base.add_suggest = function() {
 					result_ul.trigger("updatelayout");
 
 					// add the click action on the result items
-					$('#ajax_search_' + column_name + " > li").on('click', function() {
-                        base.console('id ' + $(this).data('id') + ' stored for ' + $(this).text() + ' in ' + '#id_for_' + model_name + '_' + column_name);
+					$('#ajax_search_for_' + search_field_id + " > li").on('click', function() {
+                        base.console('id ' + $(this).data('id') + ' stored for ' + $(this).text() + ' in ' + '#id_for_' + search_field_id);
 						search_field.val($(this).text());
                         // set the id value and spark a change event so that we can add custom code in our application to catch the change
-                        $('#id_for_' + model_name + '_' + column_name).val($(this).data('id')).change();
+                        $('#id_for_' + search_field_id).val($(this).data('id')).change();
 						result_ul.fadeOut();
 					});
 				},
