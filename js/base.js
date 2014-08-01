@@ -105,12 +105,14 @@ base.add_suggest = function() {
 					result_ul.trigger("updatelayout");
 
 					// add the click action on the result items
+					// todo: save the current scroll position and return to it after click or cancel
+					// todo: add cancel? esc or click somewhere?
 					$('#ajax_search_for_' + search_field_id + " > li").on('click', function() {
+						result_ul.hide();
                         base.console('id ' + $(this).data('id') + ' stored for ' + $(this).text() + ' in ' + '#id_for_' + search_field_id);
 						search_field.val($(this).text());
                         // set the id value and spark a change event so that we can add custom code in our application to catch the change
                         $('#id_for_' + search_field_id).val($(this).data('id')).change();
-						result_ul.fadeOut();
 					});
 				},
 				error: function(msg) {
