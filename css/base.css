@@ -154,6 +154,7 @@ table.cl4_content thead tr th div a.ui-link {color:#fff; text-shadow:none;}
 	line-height:normal;        /* default: 1.5em */
 	padding: 0.4em 0.5em;      /* default: 0.4em 0.5em */
 }
+/* these screw up in responsive case in field-contain because the label is on a seperate line so should be 100%... */
 .ui-field-contain > label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain > .ui-rangeslider > label {width:30% !important;} /* default 20% */
 .ui-field-contain > label + [class*="ui-"], .ui-field-contain .ui-controlgroup-controls {width:68% !important;} /* default 78% */
 
