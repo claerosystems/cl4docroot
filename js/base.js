@@ -141,6 +141,7 @@ base.console = function(msg) {
 base.get_smart_parameter = function(parameter_name, default_value, type) {
 	$.ajax({
 		type: 'POST',
+		cache: false,
 		url: '/ajax/get_smart_parameter?parameter_name=' + parameter_name + '&default=' + default_value + '&type='  + type,
 		dataType: 'json',
 		success: function(data) {
@@ -165,6 +166,7 @@ base.get_smart_parameter = function(parameter_name, default_value, type) {
 base.set_smart_parameter = function(parameter_name, value, type, success_function) {
 	$.ajax({
 		type: 'GET',
+		cache: false,
 		url: '/ajax/get_smart_parameter?parameter_name=' + parameter_name + '&' + parameter_name + '=' + value + '&type='  + type,
 		dataType: 'json',
 		success: function(data) {
