@@ -125,10 +125,10 @@ a:link {  }
 	padding: 0;
 }
 .phone_sep {width:10px; height:2.2em; padding:9px 4px 9px 2px; line-height:2em;}
-.phone_int_code {width:25px;}
-.phone_area_code {width:45px;}
-.phone_exchange {width:45px;}
-.phone_line {width:55px;}
+.phone_int_code {width:35px;}
+.phone_area_code {width:48px;}
+.phone_exchange {width:48px;}
+.phone_line {width:57px;}
 
 .responsive_list {width:100%;}
 .responsive_form {width:100%;}
