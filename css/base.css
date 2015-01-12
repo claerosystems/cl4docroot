@@ -192,7 +192,7 @@ table.cl4_content td {line-height:0.9em;}
 #mainmenu img {width:240px;}
 #mainmenu ul {margin-top:6px;}
 
-.mobile_off {display:none !important;} /* only display when desktop */
+.mobile_off {display:none;} /* only display when desktop */
 .mobile_on {display:inline;} /* only display when mobile */
 
 /*.cost { position:absolute; margin-left:4px; margin-top:5px; z-index:999; }*/
