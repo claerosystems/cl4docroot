@@ -229,7 +229,7 @@ table.cl4_content td {line-height:0.9em;}
 	}
 	.ui-field-contain > label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain > .ui-rangeslider > label {
 		margin-top:4px;
-        width:30% !important; /* default 20% */
+        width:30%; /* default 20% */
 	}
     .ui-field-contain > label + [class*="ui-"], .ui-field-contain .ui-controlgroup-controls {width:68% !important;} /* default 78% */
 	.ui-mobile label, div.ui-controlgroup-label {font-size:0.9em;}
