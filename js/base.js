@@ -213,7 +213,7 @@ base.setup_admin_page = function() {
  * @type Object
  */
 base.load_into = function(target_element, source_url, success_function) {
-	base.console('timeportal.load_into ' + target_element.attr('id') + ' with ' + source_url);
+	base.console('base.load_into ' + target_element.attr('id') + ' with ' + source_url);
 	// show and add a waiting indicator to the target element
 	target_element.html('<i class="fa fa-cog fa-spin"></i> Loading, please wait.');
 	$.ajaxSetup({ cache: false });
