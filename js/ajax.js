@@ -27,7 +27,7 @@ cl4.add_ajax_error = function(error) {
 */
 cl4.add_ajax_validation_msg = function(return_data) {
 	cl4.hide_ajax_validation_msgs();
-	if (return_data !== null && typeof return_data == 'object' && typeof return_data.validation_msg != 'undefined' && return_data.validation_msg != '') {
+	if (return_data !== null && typeof return_data == 'object' && typeof return_data.validation_msg != 'undefined' && return_data.validation_msg !== '') {
 		cl4.add_message_div(return_data.validation_msg, 'cl4_ajax_validation_msg');
 	}
 };
@@ -37,22 +37,22 @@ cl4.add_ajax_validation_msg = function(return_data) {
  */
 cl4.add_message_div = function(msg, div_class) {
 	if (arguments.length == 2) {
-		var div_class = ' class="' + div_class + '"';
+		div_class = ' class="' + div_class + '"';
 	} else {
-		var div_class = '';
+		div_class = '';
 	}
 
-	var $msg_div = $('<div' + div_class + '><span class="dismiss"><a href="">X</a></span>' + msg + '</div>');
+	var $msg_div = $('<div' + div_class + '><span class="dismiss js_dismiss"><a href="">X</a></span>' + msg + '</div>');
 
 	$('#cl4_ajax_errors').append($msg_div);
 	$msg_div.slideDown(cl4.animate_ajax_body_margin)
-	.find('span.dismiss a').click(function(e) {
-		e.preventDefault();
-		$(this).parent().parent().slideUp(function() {
-			$(this).remove();
-			cl4.animate_ajax_body_margin();
+		.find('.js_dismiss').on('click', function(e) {
+			e.preventDefault();
+			$(this).parent().parent().slideUp(function() {
+				$(this).remove();
+				cl4.animate_ajax_body_margin();
+			});
 		});
-	});
 };
 
 /**
@@ -77,14 +77,14 @@ cl4.animate_ajax_body_margin = function() {
 * Adds a default message if there is no error_msg in the return_data object
 */
 cl4.add_default_ajax_error = function(return_data, default_msg) {
-	if (arguments.length == 0) {
+	if (arguments.length === 0) {
 		return_data = null;
 		default_msg = cl4.ajax_error_msgs.default_msg;
 	} else if (arguments.length == 1) {
 		default_msg = cl4.ajax_error_msgs.default_msg;
 	}
 
-	if (return_data !== null && typeof return_data == 'object' && typeof return_data.error_msg != 'undefined' && return_data.error_msg != '') {
+	if (return_data !== null && typeof return_data == 'object' && typeof return_data.error_msg != 'undefined' && return_data.error_msg !== '') {
 		cl4.add_ajax_error(return_data.error_msg);
 	} else {
 		cl4.add_ajax_error(default_msg);
@@ -115,7 +115,7 @@ cl4.process_ajax = function(return_data) {
 		return false;
 	}
 
-	if (cl4_in_debug && typeof return_data.debug_msg != 'undefined' && return_data.debug_msg != '') {
+	if (cl4_in_debug && typeof return_data.debug_msg != 'undefined' && return_data.debug_msg !== '') {
 		cl4.add_ajax_error(return_data.debug_msg);
 	}
 
@@ -134,7 +134,6 @@ cl4.process_ajax = function(return_data) {
 				cl4.ajax_log_msg('AJAX all good');
 			}
 			return true;
-			break;
 		// not logged in
 		case 2 :
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_logged_in);
@@ -142,7 +141,6 @@ cl4.process_ajax = function(return_data) {
 				cl4.ajax_log_msg('The user is not logged in');
 			}
 			return false;
-			break;
 		// timed out
 		case 3 :
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.timed_out);
@@ -150,7 +148,6 @@ cl4.process_ajax = function(return_data) {
 				cl4.ajax_log_msg('The user has timed out');
 			}
 			return false;
-			break;
 		// not allowed (permissions)
 		case 4 :
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_allowed);
@@ -158,7 +155,6 @@ cl4.process_ajax = function(return_data) {
 				cl4.ajax_log_msg('The user does not have permissions');
 			}
 			return false;
-			break;
 		// not found 404
 		case 5 :
 			cl4.add_default_ajax_error(return_data, cl4.ajax_error_msgs.not_found_404);
@@ -166,7 +162,6 @@ cl4.process_ajax = function(return_data) {
 				cl4.ajax_log_msg('The page/path could not be found');
 			}
 			return false;
-			break;
 		// validation error
 		case 6 :
 			cl4.add_ajax_validation_msg(return_data);
@@ -174,13 +169,12 @@ cl4.process_ajax = function(return_data) {
 				cl4.ajax_log_msg('There was a validation error');
 			}
 			return false;
-			break;
 		// unknown error
 		case 0 :
 		default :
 			cl4.add_default_ajax_error(return_data);
 			if (cl4_in_debug) {
-				if (typeof return_data.debug_msg != 'undefined' && return_data.debug_msg != '') {
+				if (typeof return_data.debug_msg != 'undefined' && return_data.debug_msg !== '') {
 					cl4.ajax_log_msg('AJAX Error: ' + return_data.debug_msg);
 				} else {
 					cl4.ajax_log_msg('An unknown error occurred');
